@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Segundo commit: realizado clase Clientes y pasado correctamente su test corespondiente.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Vehiculo.java" afterDir="false" />
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Tercer commit: realizado clase Vehiculo y pasado su test correspondiente.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Vehiculos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +50,9 @@
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Exception" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,6 +94,7 @@
     "Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'.executor": "Run",
     "JUnit.ClienteTest.executor": "Run",
     "JUnit.ClientesTest.executor": "Run",
+    "JUnit.VehiculoTest.executor": "Run",
     "JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test.executor": "Run",
     "RunOnceActivity.ChatTagsLlmMigration": "true",
     "RunOnceActivity.CodyAccountHistoryMigration": "true",
@@ -135,7 +136,7 @@
       <recent name="org.iesalandalus.programacion.tallermecanico.modelo.dominio" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehiculoTest">
+  <component name="RunManager" selected="JUnit.VehiculosTest">
     <configuration name="Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -205,16 +206,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TallerMecanicoResuelto.test" />
+    <configuration name="VehiculosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.VehiculosTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,16 +225,16 @@
       <item itemvalue="Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" />
       <item itemvalue="JUnit.ClientesTest" />
       <item itemvalue="JUnit.VehiculoTest" />
+      <item itemvalue="JUnit.VehiculosTest" />
       <item itemvalue="JUnit.ClienteTest" />
-      <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VehiculosTest" />
         <item itemvalue="JUnit.VehiculoTest" />
         <item itemvalue="JUnit.ClientesTest" />
         <item itemvalue="JUnit.ClienteTest" />
         <item itemvalue="Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" />
-        <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740410646480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Tercer commit: realizado clase Vehiculo y pasado su test correspondiente.">
+      <option name="closed" value="true" />
+      <created>1740410853856</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740410853856</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,7 +320,8 @@
     <MESSAGE value="Commit inicial con el enunciado, las dependencias y los tests." />
     <MESSAGE value="Primer commit: Clase Cliente y pasado test correspondiente" />
     <MESSAGE value="Segundo commit: realizado clase Clientes y pasado correctamente su test corespondiente." />
-    <option name="LAST_COMMIT_MESSAGE" value="Segundo commit: realizado clase Clientes y pasado correctamente su test corespondiente." />
+    <MESSAGE value="Tercer commit: realizado clase Vehiculo y pasado su test correspondiente." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tercer commit: realizado clase Vehiculo y pasado su test correspondiente." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
