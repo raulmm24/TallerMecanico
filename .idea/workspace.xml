@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Commit inicial con el enunciado, las dependencias y los tests.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Primer commit: Clase Cliente y pasado test correspondiente">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/TallerMecanicoExcepcion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Clientes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,9 +51,9 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Exception" />
         <option value="package-info" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -135,7 +135,7 @@
       <recent name="org.iesalandalus.programacion.tallermecanico.modelo.dominio" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClienteTest">
+  <component name="RunManager" selected="JUnit.ClientesTest">
     <configuration name="Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -175,16 +175,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RevisionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.dominio.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.dominio" />
-      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.dominio.RevisionTest" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.ClientesTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -220,18 +220,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" />
+      <item itemvalue="JUnit.ClientesTest" />
       <item itemvalue="JUnit.ClienteTest" />
       <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test" />
-      <item itemvalue="JUnit.RevisionTest" />
       <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanico.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientesTest" />
         <item itemvalue="JUnit.ClienteTest" />
         <item itemvalue="Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'" />
         <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test" />
         <item itemvalue="JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanico.test" />
-        <item itemvalue="JUnit.RevisionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739183845414</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Primer commit: Clase Cliente y pasado test correspondiente">
+      <option name="closed" value="true" />
+      <created>1740410393926</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740410393926</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,7 +287,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Commit inicial con el enunciado, las dependencias y los tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit inicial con el enunciado, las dependencias y los tests." />
+    <MESSAGE value="Primer commit: Clase Cliente y pasado test correspondiente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primer commit: Clase Cliente y pasado test correspondiente" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
