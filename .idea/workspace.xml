@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Quinto commit: realizado clase Revision y pasado su test correspondiente.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Revisiones.java" afterDir="false" />
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Sexto commit: realizado clase Revisiones y pasado su test correspondiente.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/Modelo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +95,7 @@
     "JUnit.ClienteTest.executor": "Run",
     "JUnit.ClientesTest.executor": "Run",
     "JUnit.RevisionTest.executor": "Run",
+    "JUnit.RevisionesTest.executor": "Run",
     "JUnit.VehiculoTest.executor": "Run",
     "JUnit.VehiculosTest.executor": "Run",
     "JUnit.org.iesalandalus.programacion.tallermecanico.modelo in TallerMecanicoResuelto.test.executor": "Run",
@@ -138,17 +139,17 @@
       <recent name="org.iesalandalus.programacion.tallermecanico.modelo.dominio" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RevisionesTest">
-    <configuration name="ClientesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ModeloTest">
+    <configuration name="ModeloTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
-      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.ClientesTest" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.ModeloTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -215,7 +216,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ClientesTest" />
+      <item itemvalue="JUnit.ModeloTest" />
       <item itemvalue="JUnit.RevisionesTest" />
       <item itemvalue="JUnit.VehiculoTest" />
       <item itemvalue="JUnit.VehiculosTest" />
@@ -223,11 +224,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModeloTest" />
         <item itemvalue="JUnit.RevisionesTest" />
         <item itemvalue="JUnit.RevisionTest" />
         <item itemvalue="JUnit.VehiculosTest" />
         <item itemvalue="JUnit.VehiculoTest" />
-        <item itemvalue="JUnit.ClientesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740411087089</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Sexto commit: realizado clase Revisiones y pasado su test correspondiente.">
+      <option name="closed" value="true" />
+      <created>1740411192781</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740411192782</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +341,8 @@
     <MESSAGE value="Tercer commit: realizado clase Vehiculo y pasado su test correspondiente." />
     <MESSAGE value="Cuarto commit: realizado clase Vehiculos y pasado su test correspondiente." />
     <MESSAGE value="Quinto commit: realizado clase Revision y pasado su test correspondiente." />
-    <option name="LAST_COMMIT_MESSAGE" value="Quinto commit: realizado clase Revision y pasado su test correspondiente." />
+    <MESSAGE value="Sexto commit: realizado clase Revisiones y pasado su test correspondiente." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sexto commit: realizado clase Revisiones y pasado su test correspondiente." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
