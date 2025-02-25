@@ -5,25 +5,25 @@ import java.util.Map;
 
 public enum Opcion {
 
-    INSERTAR_CLIENTE(1,"Insertar cliente"),
-    BUSCAR_CLIENTE(2,"Buscar cliente"),
-    BORRAR_CLIENTE(3,"Borrar cliente"),
-    LISTAR_CLIENTES(4,"Listar clientes"),
-    MODIFICAR_CLIENTE(5,"Modificar cliente"),
-    INSERTAR_VEHICULO(6,"Insertar vehiculo"),
-    BUSCAR_VEHICULO(7,"Buscar vehiculo"),
-    BORRAR_VEHICULO(8,"Borrar vehiculo"),
-    LISTAR_VEHICULOS(9,"Listar vehiculos"),
-    INSERTAR_REVISION(10,"Insertar revision"),
-    BUSCAR_REVISION(11,"Buscar revision"),
-    BORRAR_REVISION(12,"Borrar revision"),
-    LISTAR_REVISIONES(13,"Listar revisiones"),
-    LISTAR_REVISIONES_CLIENTE(14,"Listar revisiones de clientes"),
-    LISTAR_REVISIONES_VEHICULO(15,"Listar revisiones de vehiculos"),
-    ANADIR_HORAS_REVISION(16,"Añadir horas de revision"),
-    ANADIR_PRECIO_MATERIAL_REVISION(17,"Añadir precio de material de revision"),
-    CERRAR_REVISION(18,"Cerrar revision"),
-    SALIR(19,"Salir");
+    INSERTAR_CLIENTE(11,"Insertar cliente"),
+    INSERTAR_VEHICULO(12,"Insertar vehiculo"),
+    INSERTAR_REVISION(13,"Insertar revision"),
+    BUSCAR_CLIENTE(21,"Buscar cliente"),
+    BUSCAR_VEHICULO(22,"Buscar vehiculo"),
+    BUSCAR_REVISION(23,"Buscar revision"),
+    BORRAR_CLIENTE(31,"Borrar cliente"),
+    BORRAR_VEHICULO(32,"Borrar vehiculo"),
+    BORRAR_REVISION(33,"Borrar revision"),
+    LISTAR_CLIENTES(41,"Listar clientes"),
+    LISTAR_VEHICULOS(42,"Listar vehiculos"),
+    LISTAR_REVISIONES(43,"Listar revisiones"),
+    LISTAR_REVISIONES_CLIENTE(44,"Listar revisiones de clientes"),
+    LISTAR_REVISIONES_VEHICULO(45,"Listar revisiones de vehiculos"),
+    ANADIR_HORAS_REVISION(51,"Añadir horas de revision"),
+    ANADIR_PRECIO_MATERIAL_REVISION(52,"Añadir precio de material de revision"),
+    MODIFICAR_CLIENTE(60,"Modificar cliente"),
+    CERRAR_REVISION(70,"Cerrar revision"),
+    SALIR(80,"Salir");
 
     private final int numeroOpcion;
     private final String mensaje;
