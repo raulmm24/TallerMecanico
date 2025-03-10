@@ -99,31 +99,22 @@ public class Modelo {
     }
 
     public List<Cliente> getClientes() {
-        return clientes.get().stream()
-                .map(Cliente::new)
-                .collect(Collectors.toList());
+        return clientes.get().stream().map(Cliente::new).collect(Collectors.toList());
     }
 
     public List<Vehiculo> getVehiculos() {
-        return vehiculos.get().stream()
-                .collect(Collectors.toList());
+        return vehiculos.get().stream().collect(Collectors.toList());
     }
 
     public List<Revision> getRevisiones() {
-        return revisiones.get().stream()
-                .map(Revision::new)
-                .collect(Collectors.toList());
+        return revisiones.get().stream().map(Revision::new).collect(Collectors.toList());
     }
 
     public List<Revision> getRevisiones(Cliente cliente) {
-        return revisiones.get(cliente).stream()
-                .map(Revision::new)
-                .collect(Collectors.toList());
+        return revisiones.get(cliente).stream().map(Revision::new).collect(Collectors.toList());
     }
 
     public List<Revision> getRevisiones(Vehiculo vehiculo) {
-        return revisiones.get(vehiculo).stream()
-                .map(Revision::new)
-                .collect(Collectors.toList());
+        return revisiones.get(vehiculo).stream().map(Revision::new).collect(Collectors.toList());
     }
 }

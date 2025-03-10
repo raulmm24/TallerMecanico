@@ -12,8 +12,8 @@ import java.util.List;
 
 public class Controlador {
 
-    private Modelo modelo;
-    private Vista vista;
+    private final Modelo modelo;
+    private final Vista vista;
 
     public Controlador(Modelo modelo, Vista vista) {
         if (modelo == null || vista == null) {

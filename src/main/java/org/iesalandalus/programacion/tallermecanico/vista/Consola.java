@@ -25,7 +25,7 @@ import java.time.format.DateTimeParseException;
 
         public static void mostrarMenu() {
             mostrarCabecera("Menú de Opciones");
-            // Se recorre el enum Opcion para mostrar todas las opciones.
+
             for (Opcion opcion : Opcion.values()) {
                 System.out.println(opcion);
             }
@@ -100,12 +100,12 @@ import java.time.format.DateTimeParseException;
             String dni = leerCadena("Introduce el DNI del cliente: ");
             String nombre = leerCadena("Introduce el nombre del cliente: ");
             String telefono = leerCadena("Introduce el teléfono del cliente: ");
-            return new Cliente(nombre, dni, telefono);
+            return new Cliente(nombre,dni,telefono);
         }
 
         public static Cliente leerClienteDni() {
             String dni = leerCadena("Introduce el DNI del cliente: ");
-            return new Cliente("",dni,"");
+            return Cliente.get(dni);
         }
 
         public static String leerNuevoNombre() {
@@ -120,12 +120,12 @@ import java.time.format.DateTimeParseException;
             String matricula = leerCadena("Introduce la matrícula del vehículo: ");
             String marca = leerCadena("Introduce la marca del vehículo: ");
             String modelo = leerCadena("Introduce el modelo del vehículo: ");
-            return new Vehiculo(matricula, marca, modelo);
+            return new Vehiculo(marca, modelo, matricula);
         }
 
         public static Vehiculo leerVehiculoMatricula() {
             String matricula = leerCadena("Introduce la matrícula del vehículo: ");
-            return new Vehiculo(matricula,"","");
+            return Vehiculo.get(matricula);
         }
 
         public static Revision leerRevision() {
