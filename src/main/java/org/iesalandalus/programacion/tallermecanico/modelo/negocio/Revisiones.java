@@ -78,7 +78,7 @@ public class Revisiones {
     private Revision getRevision(Revision revision) {
         for (Revision rev : revisiones) {
             if (rev.equals(revision)) {
-                return revision;
+                return rev;
             }
         }
         return null;
