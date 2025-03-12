@@ -8,6 +8,7 @@ import org.iesalandalus.programacion.tallermecanico.modelo.negocio.Revisiones;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.Vehiculos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,8 +54,7 @@ public class Modelo {
     }
 
     public Vehiculo buscar(Vehiculo vehiculo) {
-        Vehiculo encontrado = vehiculos.buscar(vehiculo);
-        return (encontrado != null) ? encontrado : null;
+        return vehiculos.buscar(vehiculo);
     }
 
     public Revision buscar(Revision revision) {
@@ -103,7 +103,7 @@ public class Modelo {
     }
 
     public List<Vehiculo> getVehiculos() {
-        return vehiculos.get().stream().collect(Collectors.toList());
+        return new ArrayList<>(vehiculos.get());
     }
 
     public List<Revision> getRevisiones() {

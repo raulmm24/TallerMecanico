@@ -4,40 +4,47 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Opcion {
-
-    INSERTAR_CLIENTE(11,"Insertar cliente"),
-    INSERTAR_VEHICULO(12,"Insertar vehiculo"),
-    INSERTAR_REVISION(13,"Insertar revision"),
-    BUSCAR_CLIENTE(21,"Buscar cliente"),
-    BUSCAR_VEHICULO(22,"Buscar vehiculo"),
-    BUSCAR_REVISION(23,"Buscar revision"),
-    BORRAR_CLIENTE(31,"Borrar cliente"),
-    BORRAR_VEHICULO(32,"Borrar vehiculo"),
-    BORRAR_REVISION(33,"Borrar revision"),
-    LISTAR_CLIENTES(41,"Listar clientes"),
-    LISTAR_VEHICULOS(42,"Listar vehiculos"),
-    LISTAR_REVISIONES(43,"Listar revisiones"),
-    LISTAR_REVISIONES_CLIENTE(44,"Listar revisiones de clientes"),
-    LISTAR_REVISIONES_VEHICULO(45,"Listar revisiones de vehiculos"),
-    ANADIR_HORAS_REVISION(51,"Añadir horas de revision"),
-    ANADIR_PRECIO_MATERIAL_REVISION(52,"Añadir precio de material de revision"),
-    MODIFICAR_CLIENTE(60,"Modificar cliente"),
-    CERRAR_REVISION(70,"Cerrar revision"),
-    SALIR(0,"Salir");
+    INSERTAR_CLIENTE(11, "Insertar cliente"),
+    INSERTAR_VEHICULO(12, "Insertar vehiculo"),
+    INSERTAR_REVISION(13, "Insertar revision"),
+    BUSCAR_CLIENTE(21, "Buscar cliente"),
+    BUSCAR_VEHICULO(22, "Buscar vehiculo"),
+    BUSCAR_REVISION(23, "Buscar revision"),
+    BORRAR_CLIENTE(31, "Borrar cliente"),
+    BORRAR_VEHICULO(32, "Borrar vehiculo"),
+    BORRAR_REVISION(33, "Borrar revision"),
+    LISTAR_CLIENTES(41, "Listar clientes"),
+    LISTAR_VEHICULOS(42, "Listar vehiculos"),
+    LISTAR_REVISIONES(43, "Listar revisiones"),
+    LISTAR_REVISIONES_CLIENTE(44, "Listar revisiones de clientes"),
+    LISTAR_REVISIONES_VEHICULO(45, "Listar revisiones de vehiculos"),
+    ANADIR_HORAS_REVISION(51, "Añadir horas de revisión"),
+    ANADIR_PRECIO_MATERIAL_REVISION(52, "Añadir precio de material de revisión"),
+    MODIFICAR_CLIENTE(60, "Modificar cliente"),
+    CERRAR_REVISION(70, "Cerrar revisión"),
+    SALIR(0, "Salir");
 
     private final int numeroOpcion;
     private final String mensaje;
-    private static final Map<Integer,Opcion> opciones = new HashMap<>();
+    private static final Map<Integer, Opcion> opciones = new HashMap<>();
 
     static {
         for (Opcion opcion : Opcion.values()) {
-            opciones.put(opcion.numeroOpcion,opcion);
+            opciones.put(opcion.numeroOpcion, opcion);
         }
     }
 
     private Opcion(int numeroOpcion, String mensaje) {
         this.numeroOpcion = numeroOpcion;
         this.mensaje = mensaje;
+    }
+
+    public int getNumeroOpcion() {
+        return numeroOpcion;
+    }
+
+    public String getMensaje() {
+        return mensaje;
     }
 
     public static boolean esValida(int numeroOpcion) {
@@ -47,7 +54,7 @@ public enum Opcion {
     public static Opcion get(int numeroOpcion) {
         Opcion opcion = opciones.get(numeroOpcion);
         if (opcion == null) {
-            throw new IllegalArgumentException("Numero de opcion no valido" + numeroOpcion);
+            throw new IllegalArgumentException("Número de opción no válido: " + numeroOpcion);
         }
         return opcion;
     }

@@ -17,10 +17,9 @@ import java.time.format.DateTimeParseException;
 
         private Consola() {}
 
-        public static String mostrarCabecera(String mensaje) {
+        public static void mostrarCabecera(String mensaje) {
             System.out.println(mensaje);
             System.out.println("-".repeat(mensaje.length()));
-            return mensaje;
         }
 
         public static void mostrarMenu() {
@@ -35,10 +34,10 @@ import java.time.format.DateTimeParseException;
             Opcion opcion = null;
             do {
                 int opcionEntero = leerEntero("Elige una opción: ");
-                if (opcionEntero >= 1 && opcionEntero <= Opcion.values().length) {
-                    opcion = Opcion.values()[opcionEntero - 1];
-                } else {
-                    System.out.println("Opcion invalida. Intentalo de nuevo.");
+                try {
+                    opcion = Opcion.get(opcionEntero);
+                } catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
                 }
             } while (opcion == null);
             return opcion;

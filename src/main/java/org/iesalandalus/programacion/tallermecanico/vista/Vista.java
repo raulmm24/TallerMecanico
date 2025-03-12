@@ -32,63 +32,25 @@ public class Vista {
 
     private void ejecutar(Opcion opcion) {
         switch (opcion) {
-            case INSERTAR_CLIENTE:
-                insertarCliente();
-                break;
-            case INSERTAR_VEHICULO:
-                insertarVehiculo();
-                break;
-            case INSERTAR_REVISION:
-                insertarRevision();
-                break;
-            case BUSCAR_CLIENTE:
-                buscarCliente();
-                break;
-            case BUSCAR_VEHICULO:
-                buscarVehiculo();
-                break;
-            case BUSCAR_REVISION:
-                buscarRevision();
-                break;
-            case MODIFICAR_CLIENTE:
-                modificarCliente();
-                break;
-            case ANADIR_HORAS_REVISION:
-                anadirHoras();
-                break;
-            case ANADIR_PRECIO_MATERIAL_REVISION:
-                anadirPrecioMaterial();
-                break;
-            case CERRAR_REVISION:
-                cerrarRevision();
-                break;
-            case BORRAR_CLIENTE:
-                borrarCliente();
-                break;
-            case BORRAR_VEHICULO:
-                borrarVehiculo();
-                break;
-            case BORRAR_REVISION:
-                borrarRevision();
-                break;
-            case LISTAR_CLIENTES:
-                listarClientes();
-                break;
-            case LISTAR_VEHICULOS:
-                listarVehiculos();
-                break;
-            case LISTAR_REVISIONES:
-                listarRevisiones();
-                break;
-            case LISTAR_REVISIONES_CLIENTE:
-                listarRevisionesCliente();
-                break;
-            case LISTAR_REVISIONES_VEHICULO:
-                listarRevisionesVehiculo();
-                break;
-            case SALIR:
-                terminar();
-
+            case INSERTAR_CLIENTE -> insertarCliente();
+            case INSERTAR_VEHICULO -> insertarVehiculo();
+            case INSERTAR_REVISION -> insertarRevision();
+            case BUSCAR_CLIENTE -> buscarCliente();
+            case BUSCAR_VEHICULO -> buscarVehiculo();
+            case BUSCAR_REVISION -> buscarRevision();
+            case MODIFICAR_CLIENTE-> modificarCliente();
+            case ANADIR_HORAS_REVISION -> anadirHoras();
+            case ANADIR_PRECIO_MATERIAL_REVISION -> anadirPrecioMaterial();
+            case CERRAR_REVISION -> cerrarRevision();
+            case BORRAR_CLIENTE -> borrarCliente();
+            case BORRAR_VEHICULO -> borrarVehiculo();
+            case BORRAR_REVISION -> borrarRevision();
+            case LISTAR_CLIENTES -> listarClientes();
+            case LISTAR_VEHICULOS -> listarVehiculos();
+            case LISTAR_REVISIONES -> listarRevisiones();
+            case LISTAR_REVISIONES_CLIENTE -> listarRevisionesCliente();
+            case LISTAR_REVISIONES_VEHICULO -> listarRevisionesVehiculo();
+            case SALIR -> terminar();
         }
     }
 
