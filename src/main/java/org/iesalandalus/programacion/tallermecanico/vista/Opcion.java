@@ -23,7 +23,7 @@ public enum Opcion {
     ANADIR_PRECIO_MATERIAL_REVISION(52,"Añadir precio de material de revision"),
     MODIFICAR_CLIENTE(60,"Modificar cliente"),
     CERRAR_REVISION(70,"Cerrar revision"),
-    SALIR(80,"Salir");
+    SALIR(0,"Salir");
 
     private final int numeroOpcion;
     private final String mensaje;
@@ -35,7 +35,7 @@ public enum Opcion {
         }
     }
 
-    Opcion(int numeroOpcion, String mensaje) {
+    private Opcion(int numeroOpcion, String mensaje) {
         this.numeroOpcion = numeroOpcion;
         this.mensaje = mensaje;
     }

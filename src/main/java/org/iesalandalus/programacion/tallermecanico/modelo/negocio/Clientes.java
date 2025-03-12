@@ -33,12 +33,14 @@ public class Clientes {
         }
         boolean modificado = false;
 
+        Cliente clienteExistente = buscar(cliente);
+
         if (nombre != null) {
             if (nombre.isBlank()) {
                 throw new TallerMecanicoExcepcion("El nombre no puede estar en blanco.");
             }
             if (!nombre.equals(cliente.getNombre())) {
-                cliente.setNombre(nombre);
+                clienteExistente.setNombre(nombre);
                 modificado = true;
             }
         }
@@ -51,7 +53,7 @@ public class Clientes {
                 throw new TallerMecanicoExcepcion("El telefono no puede estar en blanco");
             }
             if (!telefono.equals(cliente.getTelefono())) {
-                cliente.setTelefono(telefono);
+                clienteExistente.setTelefono(telefono);
                 modificado = true;
             }
         }
