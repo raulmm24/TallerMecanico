@@ -50,16 +50,16 @@ public class Revisiones {
 
     private void comprobarRevision(Cliente cliente, Vehiculo vehiculo, LocalDate fechaRevision) throws TallerMecanicoExcepcion {
         for (Revision revision : revisiones) {
-            if (revision.getCliente().equals(cliente) && !revision.estaCerrada()) {
+            if (revision.getCliente().equals(cliente) && !revision.estaCerrado()) {
                 throw new TallerMecanicoExcepcion("El cliente tiene otra revisión en curso.");
             }
-            if (revision.getVehiculo().equals(vehiculo) && !revision.estaCerrada()) {
+            if (revision.getVehiculo().equals(vehiculo) && !revision.estaCerrado()) {
                 throw new TallerMecanicoExcepcion("El vehículo está actualmente en revisión.");
             }
-            if (revision.getCliente().equals(cliente) && revision.estaCerrada() && !revision.getFechaFin().isBefore(fechaRevision)) {
+            if (revision.getCliente().equals(cliente) && revision.estaCerrado() && !revision.getFechaFin().isBefore(fechaRevision)) {
                 throw new TallerMecanicoExcepcion("El cliente tiene una revisión posterior.");
             }
-            if (revision.getVehiculo().equals(vehiculo) && revision.estaCerrada() && !revision.getFechaFin().isBefore(fechaRevision)) {
+            if (revision.getVehiculo().equals(vehiculo) && revision.estaCerrado() && !revision.getFechaFin().isBefore(fechaRevision)) {
                 throw new TallerMecanicoExcepcion("El vehículo tiene una revisión posterior.");
             }
         }
