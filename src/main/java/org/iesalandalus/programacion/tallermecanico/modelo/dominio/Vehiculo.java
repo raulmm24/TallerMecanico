@@ -5,8 +5,7 @@ import java.util.Objects;
 public record Vehiculo(String marca, String modelo, String matricula) {
 
     private static final String ER_MARCA = "^(?!\\s)(?![A-Z]{2}-[A-Z]{2})(?=.*[A-Z])[A-Za-z0-9\\- ]{3,}(?<!\\s)$";
-    private static final String ER_MATRICULA = "^[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}$"
-            ;
+    private static final String ER_MATRICULA = "^[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}$";
 
     public Vehiculo {
         validarMarca(marca);
