@@ -4,9 +4,12 @@ import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Fuent
 
 public enum FabricaFuenteDatos {
 
-    MEMORIA;
+    MEMORIA {
+        @Override
+        public IFuenteDatos crear() {
+            return new FuenteDatosMemoria();
+        }
+    };
 
-    public IFuenteDatos crear() {
-        return new FuenteDatosMemoria();
-    }
+    public abstract IFuenteDatos crear();
 }

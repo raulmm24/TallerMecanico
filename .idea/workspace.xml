@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="primer commit: modificar README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/FabricaFuenteDatos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/IClientes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/IFuenteDatos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/ITrabajos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/IVehiculos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/memoria/FuenteDatosMemoria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/memoria/Trabajos.java" afterDir="false" />
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="modificación de varias clases">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/FabricaModelo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/cascada/ModeloCascada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/controlador/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Vehiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Vehiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/memoria/Clientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Revisiones.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/Vehiculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/memoria/Vehiculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/FabricaFuenteDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/negocio/FabricaFuenteDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.uml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.uml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +56,9 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Exception" />
-        <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -104,6 +99,9 @@
     "Gradle.Build TallerMecanico.executor": "Run",
     "Gradle.Tests in 'org.iesalandalus.programacion.tallermecanico.modelo'.executor": "Run",
     "JUnit.ClientesTest.executor": "Run",
+    "JUnit.ModeloTest.executor": "Run",
+    "JUnit.ModeloTest.insertarClienteLlamaClientesInsertar.executor": "Debug",
+    "JUnit.ModeloTest.insertarVehiculoLlamaVehiculosInsertar.executor": "Run",
     "JUnit.TrabajoTest,constructorTrabajoValidoCopiaTrabajoCorrectamente and 2 more.executor": "Run",
     "JUnit.TrabajoTest.executor": "Run",
     "JUnit.TrabajosTest.executor": "Run",
@@ -155,7 +153,7 @@
       <recent name="org.iesalandalus.programacion.tallermecanico.modelo.dominio" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientesTest">
+  <component name="RunManager" selected="JUnit.ModeloTest">
     <configuration name="ClientesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
@@ -171,48 +169,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrabajosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModeloTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
-      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.TrabajosTest" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.ModeloTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrabajosTest.insertarTrabajoClienteTrabajoAnteiorLanzaExcepcion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModeloTest.insertarClienteLlamaClientesInsertar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
-      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.TrabajosTest" />
-      <option name="METHOD_NAME" value="insertarTrabajoClienteTrabajoAnteiorLanzaExcepcion" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.ModeloTest" />
+      <option name="METHOD_NAME" value="insertarClienteLlamaClientesInsertar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrabajosTest.insertarTrabajoVehiculoTrabajoAnteriorLanzaExcepcion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModeloTest.insertarVehiculoLlamaVehiculosInsertar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TallerMecanico.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.*" />
+          <option name="PATTERN" value="org.iesalandalus.programacion.tallermecanico.modelo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio" />
-      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.negocio.TrabajosTest" />
-      <option name="METHOD_NAME" value="insertarTrabajoVehiculoTrabajoAnteriorLanzaExcepcion" />
+      <option name="PACKAGE_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo" />
+      <option name="MAIN_CLASS_NAME" value="org.iesalandalus.programacion.tallermecanico.modelo.ModeloTest" />
+      <option name="METHOD_NAME" value="insertarVehiculoLlamaVehiculosInsertar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -234,19 +232,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ModeloTest.insertarClienteLlamaClientesInsertar" />
+      <item itemvalue="JUnit.ModeloTest.insertarVehiculoLlamaVehiculosInsertar" />
+      <item itemvalue="JUnit.ModeloTest" />
       <item itemvalue="JUnit.ClientesTest" />
       <item itemvalue="JUnit.VehiculosTest" />
-      <item itemvalue="JUnit.TrabajosTest" />
-      <item itemvalue="JUnit.TrabajosTest.insertarTrabajoClienteTrabajoAnteiorLanzaExcepcion" />
-      <item itemvalue="JUnit.TrabajosTest.insertarTrabajoVehiculoTrabajoAnteriorLanzaExcepcion" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModeloTest" />
+        <item itemvalue="JUnit.ModeloTest.insertarVehiculoLlamaVehiculosInsertar" />
+        <item itemvalue="JUnit.ModeloTest.insertarClienteLlamaClientesInsertar" />
         <item itemvalue="JUnit.ClientesTest" />
         <item itemvalue="JUnit.VehiculosTest" />
-        <item itemvalue="JUnit.TrabajosTest" />
-        <item itemvalue="JUnit.TrabajosTest.insertarTrabajoClienteTrabajoAnteiorLanzaExcepcion" />
-        <item itemvalue="JUnit.TrabajosTest.insertarTrabajoVehiculoTrabajoAnteriorLanzaExcepcion" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742384948655</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modificación de varias clases">
+      <option name="closed" value="true" />
+      <created>1743069370265</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743069370265</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,7 +318,8 @@
     <MESSAGE value="Commit inicial con el enunciado, las dependencias y los tests." />
     <MESSAGE value="Errata en el enunciado y en el diagrama." />
     <MESSAGE value="primer commit: modificar README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="primer commit: modificar README.md" />
+    <MESSAGE value="modificación de varias clases" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificación de varias clases" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
