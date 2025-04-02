@@ -23,7 +23,7 @@ public class GestorEventos {
         }
     }
 
-    public void desusscribir(ReceptorEventos receptor, Evento... eventos) {
+    public void desuscribir(ReceptorEventos receptor, Evento... eventos) {
         Objects.requireNonNull(eventos,"Te debes de desuscribir de algun evento.");
         Objects.requireNonNull(receptor,"El receptor de eventos no puede ser nulo.");
         for (Evento evento : eventos) {
