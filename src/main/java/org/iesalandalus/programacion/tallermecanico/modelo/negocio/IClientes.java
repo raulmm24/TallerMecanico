@@ -6,9 +6,9 @@ import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import java.util.List;
 
 public interface IClientes {
-    public List<Cliente> get();
-    public void insertar(Cliente cliente) throws TallerMecanicoExcepcion;
-    public Cliente modificar(Cliente cliente,String nombre,String telefono) throws TallerMecanicoExcepcion;
-    public Cliente buscar(Cliente cliente);
-    public void borrar(Cliente cliente) throws TallerMecanicoExcepcion;
+    List<Cliente> get();
+    void insertar(Cliente cliente) throws TallerMecanicoExcepcion;
+    Cliente modificar(Cliente cliente,String nombre,String telefono) throws TallerMecanicoExcepcion;
+    Cliente buscar(Cliente cliente);
+    void borrar(Cliente cliente) throws TallerMecanicoExcepcion;
 }
