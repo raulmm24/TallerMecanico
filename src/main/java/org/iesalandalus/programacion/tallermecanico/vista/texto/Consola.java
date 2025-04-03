@@ -1,14 +1,10 @@
-package org.iesalandalus.programacion.tallermecanico.vista;
+package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
-
+import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-
 
     public class Consola {
 
@@ -25,17 +21,17 @@ import java.time.format.DateTimeParseException;
         public static void mostrarMenu() {
             mostrarCabecera("Menú de Opciones");
 
-            for (Opcion opcion : Opcion.values()) {
+            for (Evento opcion : Evento.values()) {
                 System.out.println(opcion);
             }
         }
 
-        public static Opcion elegirOpcion() {
-            Opcion opcion = null;
+        public static Evento elegirOpcion() {
+            Evento opcion = null;
             do {
                 int opcionEntero = leerEntero("Elige una opción: ");
                 try {
-                    opcion = Opcion.get(opcionEntero);
+                    opcion = Evento.get(opcionEntero);
                 } catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
                 }
@@ -78,7 +74,7 @@ import java.time.format.DateTimeParseException;
             return scanner.nextLine();
         }
 
-        private static LocalDate leerFecha(String mensaje) {
+        static LocalDate leerFecha(String mensaje) {
             LocalDate fecha = null;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
             boolean valido = false;
@@ -95,55 +91,4 @@ import java.time.format.DateTimeParseException;
             return fecha;
         }
 
-        public static Cliente leerCliente() {
-            String dni = leerCadena("Introduce el DNI del cliente: ");
-            String nombre = leerCadena("Introduce el nombre del cliente: ");
-            String telefono = leerCadena("Introduce el teléfono del cliente: ");
-            return new Cliente(nombre,dni,telefono);
-        }
-
-        public static Cliente leerClienteDni() {
-            String dni = leerCadena("Introduce el DNI del cliente: ");
-            return Cliente.get(dni);
-        }
-
-        public static String leerNuevoNombre() {
-            return leerCadena("Introduce el nuevo nombre: ");
-        }
-
-        public static String leerNuevoTelefono() {
-            return leerCadena("Introduce el nuevo teléfono: ");
-        }
-
-        public static Vehiculo leerVehiculo() {
-            String matricula = leerCadena("Introduce la matrícula del vehículo: ");
-            String marca = leerCadena("Introduce la marca del vehículo: ");
-            String modelo = leerCadena("Introduce el modelo del vehículo: ");
-            return new Vehiculo(marca, modelo, matricula);
-        }
-
-        public static Vehiculo leerVehiculoMatricula() {
-            String matricula = leerCadena("Introduce la matrícula del vehículo: ");
-            return Vehiculo.get(matricula);
-        }
-
-        public static Revision leerRevision() {
-            Cliente cliente = leerCliente();
-            Vehiculo vehiculo = leerVehiculo();
-            LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio de la revisión (dd/MM/yyyy): ");
-            return new Revision(cliente,vehiculo,fechaInicio);
-        }
-
-        public static int leerHoras() {
-            return leerEntero("Introduce las horas de trabajo: ");
-        }
-
-        public static float leerPrecioMaterial() {
-            return leerReal("Introduce el precio del material: ");
-        }
-
-        public static LocalDate leerFechaCierre() {
-            return leerFecha("Introduce la fecha de cierre (dd/MM/yyyy): ");
-        }
     }
-
