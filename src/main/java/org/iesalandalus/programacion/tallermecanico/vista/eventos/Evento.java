@@ -41,14 +41,12 @@ public enum Evento {
         this.codigo = codigo;
     }
 
-    public int getCodigo() {return codigo;}
-
     public static boolean esValido(int codigo) {
         return eventos.containsKey(codigo);
     }
     public static Evento get(int codigo) {
         if (!esValido(codigo)) {
-            throw new IllegalArgumentException("El codigo no es correcto.");
+            throw new IllegalArgumentException("El código no es correcto.");
         }
         return eventos.get(codigo);
     }
