@@ -25,7 +25,6 @@ public class Revisiones {
     /* REPASAR */
 
     public List<Revision> get(Cliente cliente) {
-        Objects.requireNonNull(cliente, "No se puede obtener las revisiones de un cliente nulo.");
         List<Revision> revisionesCliente = new ArrayList<>();
         for (Revision revision : coleccionRevisiones) {
             if (revision.getCliente().equals(cliente)) {
@@ -36,7 +35,6 @@ public class Revisiones {
     }
 
     public List<Revision> get(Vehiculo vehiculo) {
-        Objects.requireNonNull(vehiculo, "No se puede obtener las revisiones de un vehículo nulo.");
         List<Revision> revisionesVehiculo = new ArrayList<>();
         for (Revision revision : coleccionRevisiones) {
             if (revision.getVehiculo().equals(vehiculo)) {
