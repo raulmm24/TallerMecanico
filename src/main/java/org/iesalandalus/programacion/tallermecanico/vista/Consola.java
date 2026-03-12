@@ -93,19 +93,19 @@ public class Consola {
 
     public static Vehiculo leerVehiculo() {
         String marca = leerCadena("Introduce la marca: ");
-        String modelo = leerCadena("Introduce el modelo");
+        String modelo = leerCadena("Introduce el modelo: ");
         String matricula = leerCadena("Introduce la matricula: ");
         return new Vehiculo(marca,modelo,matricula);
     }
 
     public static Vehiculo leerVehiculoMatricula() {
-        return Vehiculo.get(leerCadena("Introduce la matricula del vehículo del cliente:"));
+        return Vehiculo.get(leerCadena("Introduce la matricula del vehículo del cliente: "));
     }
 
     public static Revision leerRevision() {
         Cliente cliente = leerClienteDni();
         Vehiculo vehiculo = leerVehiculoMatricula();
-        LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio:");
+        LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio: ");
         return new Revision(cliente,vehiculo,fechaInicio);
     }
 

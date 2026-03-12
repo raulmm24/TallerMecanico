@@ -126,7 +126,7 @@ public class Vista {
         try {
             controlador.modificar(Consola.leerClienteDni(), Consola.leerNuevoNombre(),Consola.leerNuevoTelefono());
             System.out.println("Cliente modificado correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }
@@ -136,7 +136,7 @@ public class Vista {
         try {
             controlador.anadirHoras(Consola.leerRevision(), Consola.leerHoras());
             System.out.println("Las horas se han añadido correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }
@@ -156,7 +156,7 @@ public class Vista {
         try {
             controlador.cerrar(Consola.leerRevision(),Consola.leerFechaCierre());
             System.out.println("Revisión cerrada correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }
