@@ -84,7 +84,7 @@ public class Cliente {
     }
 
     public static Cliente get(String dni) {
-        return new Cliente("Raul", dni, "950111111");
+        return new Cliente("Nombre Valida", dni, "600000000");
     }
 
     @Override
