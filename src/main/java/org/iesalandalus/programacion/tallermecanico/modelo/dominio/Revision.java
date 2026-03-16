@@ -63,7 +63,6 @@ public class Revision {
 
     private void setFechaInicio(LocalDate fechaInicio) {
         Objects.requireNonNull(fechaInicio,"La fecha de inicio no puede ser nula.");
-
         if (fechaInicio.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("La fecha de inicio no puede ser futura.");
         }
@@ -76,11 +75,9 @@ public class Revision {
 
     private void setFechaFin(LocalDate fechaFin) {
         Objects.requireNonNull(fechaFin,"La fecha de fin no puede ser nula.");
-
         if (fechaFin.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("La fecha de fin no puede ser futura.");
         }
-
         if (fechaFin.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("La fecha de fin no puede ser anterior a la fecha de inicio.");
         }
@@ -95,7 +92,6 @@ public class Revision {
         if (estaCerrada()) {
             throw new TallerMecanicoExcepcion("No se puede añadir horas, ya que la revisión está cerrada.");
         }
-
         if (horas <= 0) {
             throw new IllegalArgumentException("Las horas a añadir deben ser mayores que cero.");
         }
@@ -110,7 +106,6 @@ public class Revision {
         if (estaCerrada()) {
             throw new TallerMecanicoExcepcion("No se puede añadir precio del material, ya que la revisión está cerrada.");
         }
-
         if (precioMaterial <= 0) {
             throw new IllegalArgumentException("El precio del material a añadir debe ser mayor que cero.");
         }
@@ -126,11 +121,9 @@ public class Revision {
             throw new TallerMecanicoExcepcion("La revisión ya está cerrada.");
         }
         Objects.requireNonNull(fechaFin,"La fecha de fin no puede ser nula.");
-
         if (fechaFin.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("La fecha de fin no puede ser futura.");
         }
-
         if (fechaFin.isBefore(fechaInicio)) {
             throw new IllegalArgumentException("La fecha de fin no puede ser anterior a la fecha de inicio.");
         }

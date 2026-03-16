@@ -15,7 +15,6 @@ public record Vehiculo(String marca, String modelo, String matricula) {
 
     private void validarMarca(String marca) {
         Objects.requireNonNull(marca,"La marca no puede ser nula.");
-
         if (!marca.matches(ER_MARCA)) {
             throw new IllegalArgumentException("La marca no tiene un formato válido.");
         }
@@ -23,7 +22,6 @@ public record Vehiculo(String marca, String modelo, String matricula) {
 
     private void validarModelo(String modelo) {
         Objects.requireNonNull(modelo,"El modelo no puede ser nulo.");
-
         if (modelo.isBlank()) {
             throw new IllegalArgumentException("El modelo no puede estar en blanco.");
         }
@@ -31,7 +29,6 @@ public record Vehiculo(String marca, String modelo, String matricula) {
 
     private void validarMatricula(String matricula) {
         Objects.requireNonNull(matricula,"La matrícula no puede ser nula.");
-
         if (!matricula.matches(ER_MATRICULA)) {
             throw new IllegalArgumentException("La matrícula no tiene un formato válido.");
         }

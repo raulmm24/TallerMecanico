@@ -27,7 +27,6 @@ public enum Opcion {
 
     private final int numeroOpcion;
     private final String mensaje;
-
     private static final Map<Integer,Opcion> opciones = new HashMap<>();
 
     static {
