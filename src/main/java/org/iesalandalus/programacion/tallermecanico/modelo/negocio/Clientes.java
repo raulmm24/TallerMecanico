@@ -57,7 +57,6 @@ public class Clientes {
         if (telefono != null && !telefono.isBlank()) {
             clienteEncontrado.setTelefono(telefono);
         }
-
         return clienteEncontrado;
     }
 }

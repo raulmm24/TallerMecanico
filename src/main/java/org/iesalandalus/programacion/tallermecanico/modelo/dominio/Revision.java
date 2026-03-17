@@ -116,7 +116,7 @@ public class Revision {
         return fechaFin != null;
     }
 
-    public void cerrar(LocalDate fechaFin) {
+    public void cerrar(LocalDate fechaFin) throws TallerMecanicoExcepcion {
         if (estaCerrada()) {
             throw new TallerMecanicoExcepcion("La revisión ya está cerrada.");
         }
