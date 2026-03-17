@@ -87,16 +87,13 @@ public class Revisiones {
     public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(revision,"No puedo operar sobre una revisión nula.");
 
-        int indice = coleccionRevisiones.indexOf(revision);
+        Revision encontrada = buscar(revision);
 
-        if (indice == -1) {
+        if (encontrada == null) {
             throw new TallerMecanicoExcepcion("No existe ninguna revisión igual.");
         }
-
-        Revision revisionEncontrada = coleccionRevisiones.get(indice);
-        revisionEncontrada.anadirPrecioMaterial(precioMaterial);
-
-        return revisionEncontrada;
+        encontrada.anadirPrecioMaterial(precioMaterial);
+        return encontrada;
     }
 
     public Revision cerrar(Revision revision, LocalDate fechaFin) throws TallerMecanicoExcepcion {
@@ -116,8 +113,8 @@ public class Revisiones {
 
     public Revision buscar(Revision revision) {
         Objects.requireNonNull(revision, "No se puede buscar una revisión nula.");
-        int indice = coleccionRevisiones.indexOf(revision);
-        return (indice == -1) ? null : coleccionRevisiones.get(indice);
+        int revisionEncontada = coleccionRevisiones.indexOf(revision);
+        return (revisionEncontada == -1) ? null : coleccionRevisiones.get(revisionEncontada);
     }
 
     public void borrar(Revision revision) throws TallerMecanicoExcepcion {
