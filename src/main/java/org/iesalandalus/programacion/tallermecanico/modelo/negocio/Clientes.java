@@ -29,8 +29,8 @@ public class Clientes {
 
     public Cliente buscar(Cliente cliente) {
         Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
-        int indice = coleccionClientes.indexOf(cliente);
-        return (indice == -1) ? null : coleccionClientes.get(indice);
+        int clienteEncontrado = coleccionClientes.indexOf(cliente);
+        return (clienteEncontrado == -1) ? null : coleccionClientes.get(clienteEncontrado);
     }
 
     public void borrar(Cliente cliente) throws TallerMecanicoExcepcion {
@@ -44,12 +44,11 @@ public class Clientes {
     public Cliente modificar(Cliente cliente, String nombre, String telefono) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(cliente, "No se puede modificar un cliente nulo.");
 
-        int indice = coleccionClientes.indexOf(cliente);
-        if (indice == -1) {
+        Cliente clienteEncontrado = buscar(cliente);
+
+        if (clienteEncontrado == null) {
             throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
-
-        Cliente clienteEncontrado = coleccionClientes.get(indice);
 
         if (nombre != null && !nombre.isBlank()) {
             clienteEncontrado.setNombre(nombre);

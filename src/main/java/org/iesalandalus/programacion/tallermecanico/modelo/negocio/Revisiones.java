@@ -22,8 +22,6 @@ public class Revisiones {
         return new ArrayList<>(coleccionRevisiones);
     }
 
-    /* REPASAR */
-
     public List<Revision> get(Cliente cliente) {
         List<Revision> revisionesCliente = new ArrayList<>();
         for (Revision revision : coleccionRevisiones) {
@@ -51,8 +49,6 @@ public class Revisiones {
         coleccionRevisiones.add(revision);
     }
 
-    /* REPASAR */
-
     private void comprobarRevision(Cliente cliente, Vehiculo vehiculo, LocalDate fechaRevision) {
         for (Revision r : coleccionRevisiones) {
             if (r.getCliente().equals(cliente)) {
@@ -72,8 +68,6 @@ public class Revisiones {
             }
         }
     }
-
-    /* REPASAR */
 
     public Revision anadirHoras(Revision revision, int horas) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(revision, "No puedo operar sobre una revisión nula.");

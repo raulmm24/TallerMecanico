@@ -137,8 +137,6 @@ public class Revision {
         return (getDias() * PRECIO_DIA) + (horas * PRECIO_HORA) + (precioMaterial * PRECIO_MATERIAL);
     }
 
-    /* REPASAR */
-
     private float getDias() {
         if (!estaCerrada()) {
             return 0;
