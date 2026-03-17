@@ -18,7 +18,7 @@ public enum Opcion {
     BUSCAR_REVISION(11,"Buscar revisión"),
     BORRAR_REVISION(12,"Borrar revisión"),
     LISTAR_REVISIONES(13,"Listar revisiones"),
-    LISTAR_REVISIONES_CLIENTE(14,"Listar revisiones un cliente"),
+    LISTAR_REVISIONES_CLIENTE(14,"Listar revisiones de un cliente"),
     LISTAR_REVISIONES_VEHICULO(15,"Listar revisiones de un vehículo"),
     ANADIR_HORAS_REVISION(16,"Añadir horas a una revisión"),
     ANADIR_PRECIO_MATERIAL_REVISION(17,"Añadir precio de material a una revisión"),

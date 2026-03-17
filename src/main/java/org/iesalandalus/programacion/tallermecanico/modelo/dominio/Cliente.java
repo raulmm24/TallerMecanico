@@ -1,14 +1,12 @@
 package org.iesalandalus.programacion.tallermecanico.modelo.dominio;
 
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Cliente {
 
     private static final String ER_NOMBRE = "^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+( [A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$";
-    private static final String ER_DNI = "^([0-9]{8})([A-Za-z])$";
-    private static final String ER_TELEFONO = "^[0-9]{9}$";
+    private static final String ER_DNI = "\\d{8}[A-Z]";
+    private static final String ER_TELEFONO = "\\d{9}";
 
     private String nombre;
     private String dni;
@@ -54,21 +52,14 @@ public class Cliente {
         this.dni = dni;
     }
 
-    /* METODO COMPROBAR LETRA DNI REPASAR  */
-
     private boolean comprobarLetraDni(String dni) {
-        Pattern pattern = Pattern.compile(ER_DNI);
-        Matcher matcher = pattern.matcher(dni);
 
-        if (matcher.find()) {
-            int numero = Integer.parseInt(matcher.group(1));
-            char letraProporcionada = matcher.group(2).toUpperCase().charAt(0);
-            String letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE";
-            char letraCorrecta = letrasValidas.charAt(numero % 23);
+        int numero = Integer.parseInt(dni.substring(0, 8));
+        char letraProporcionada = dni.charAt(8);
+        String letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE";
+        char letraCorrecta = letrasValidas.charAt(numero % 23);
 
-            return letraProporcionada == letraCorrecta;
-        }
-        return false;
+        return letraProporcionada == letraCorrecta;
     }
 
     public String getTelefono() {

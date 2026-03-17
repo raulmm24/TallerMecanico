@@ -63,7 +63,7 @@ public class Vista {
         try {
             controlador.insertar(Consola.leerCliente());
             System.out.println("Cliente insertado correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }
@@ -73,7 +73,7 @@ public class Vista {
         try {
             controlador.insertar(Consola.leerVehiculo());
             System.out.println("Vehiculo insertado correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }

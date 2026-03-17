@@ -75,7 +75,7 @@ public class Revisiones {
 
     /* REPASAR */
 
-    public Revision anadirHoras(Revision revision, int horas) {
+    public Revision anadirHoras(Revision revision, int horas) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(revision, "No puedo operar sobre una revisión nula.");
         Revision encontrada = buscar(revision);
         if (encontrada == null) {
@@ -90,7 +90,7 @@ public class Revisiones {
         return revision;
     }
 
-    public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) {
+    public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(revision,"No puedo operar sobre una revisión nula.");
 
         int indice = coleccionRevisiones.indexOf(revision);
