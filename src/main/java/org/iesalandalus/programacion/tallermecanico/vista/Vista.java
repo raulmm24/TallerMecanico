@@ -83,7 +83,7 @@ public class Vista {
         try {
             controlador.insertar(Consola.leerRevision());
             System.out.println("Revisión insertada correctamente");
-        } catch (TallerMecanicoExcepcion | NullPointerException e) {
+        } catch (TallerMecanicoExcepcion | IllegalArgumentException|  NullPointerException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
     }

@@ -27,8 +27,6 @@ public class Consola {
         }
     }
 
-    /* REPASAR ELEGIR OPCION */
-
     public static Opcion elegirOpcion() {
         Opcion opcion = null;
         do {
@@ -56,8 +54,6 @@ public class Consola {
         System.out.print(mensaje);
         return Entrada.cadena();
     }
-
-    /* REPASAR LEER FECHA */
 
     private static LocalDate leerFecha(String mensaje) {
         LocalDate fecha = null;

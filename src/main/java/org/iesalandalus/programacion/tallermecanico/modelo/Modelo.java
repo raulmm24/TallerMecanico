@@ -11,8 +11,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/* REPASAR CLASE */
-
 public class Modelo {
 
     private Clientes clientes;
@@ -27,7 +25,9 @@ public class Modelo {
         revisiones = new Revisiones();
     }
 
-    public void terminar() {}
+    public void terminar() {
+        System.out.println("El modelo ha terminado.");
+    }
 
     public void insertar(Cliente cliente) {
         clientes.insertar(new Cliente(cliente));
@@ -78,15 +78,15 @@ public class Modelo {
     }
 
     public void borrar(Cliente cliente) {
-        for (Revision r : revisiones.get(cliente)) {
-            revisiones.borrar(r);
+        for (Revision revision : revisiones.get(cliente)) {
+            revisiones.borrar(revision);
         }
         clientes.borrar(cliente);
     }
 
     public void borrar(Vehiculo vehiculo) {
-        for (Revision r : revisiones.get(vehiculo)) {
-            revisiones.borrar(r);
+        for (Revision revision : revisiones.get(vehiculo)) {
+            revisiones.borrar(revision);
         }
         vehiculos.borrar(vehiculo);
     }
@@ -97,8 +97,8 @@ public class Modelo {
 
     public List<Cliente> getClientes() {
         List<Cliente> copia = new ArrayList<>();
-        for (Cliente c : clientes.get()) {
-            copia.add(new Cliente(c));
+        for (Cliente cliente : clientes.get()) {
+            copia.add(new Cliente(cliente));
         }
         return copia;
     }
@@ -109,24 +109,24 @@ public class Modelo {
 
     public List<Revision> getRevisiones() {
         List<Revision> copia = new ArrayList<>();
-        for (Revision r : revisiones.get()) {
-            copia.add(new Revision(r));
+        for (Revision revision : revisiones.get()) {
+            copia.add(new Revision(revision));
         }
         return copia;
     }
 
     public List<Revision> getRevisiones(Cliente cliente) {
         List<Revision> copia = new ArrayList<>();
-        for (Revision r : revisiones.get(cliente)) {
-            copia.add(new Revision(r));
+        for (Revision revision : revisiones.get(cliente)) {
+            copia.add(new Revision(revision));
         }
         return copia;
     }
 
     public List<Revision> getRevisiones(Vehiculo vehiculo) {
         List<Revision> copia = new ArrayList<>();
-        for (Revision r : revisiones.get(vehiculo)) {
-            copia.add(new Revision(r));
+        for (Revision revision : revisiones.get(vehiculo)) {
+            copia.add(new Revision(revision));
         }
         return copia;
     }

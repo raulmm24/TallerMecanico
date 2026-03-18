@@ -49,7 +49,7 @@ public class Revisiones {
         coleccionRevisiones.add(revision);
     }
 
-    private void comprobarRevision(Cliente cliente, Vehiculo vehiculo, LocalDate fechaRevision) {
+    private void comprobarRevision(Cliente cliente, Vehiculo vehiculo, LocalDate fechaRevision) throws TallerMecanicoExcepcion {
         for (Revision r : coleccionRevisiones) {
             if (r.getCliente().equals(cliente)) {
                 if (!r.estaCerrada()) {
@@ -111,7 +111,7 @@ public class Revisiones {
         return revisionEncontrada;
     }
 
-    public Revision buscar(Revision revision) {
+    public Revision buscar(Revision revision)  {
         Objects.requireNonNull(revision, "No se puede buscar una revisión nula.");
         int revisionEncontada = coleccionRevisiones.indexOf(revision);
         return (revisionEncontada == -1) ? null : coleccionRevisiones.get(revisionEncontada);
