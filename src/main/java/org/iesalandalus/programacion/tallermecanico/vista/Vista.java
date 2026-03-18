@@ -64,7 +64,7 @@ public class Vista {
             controlador.insertar(Consola.leerCliente());
             System.out.println("Cliente insertado correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
-            System.out.println("ERROR: El cliente no ha sido insertado correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -74,7 +74,7 @@ public class Vista {
             controlador.insertar(Consola.leerVehiculo());
             System.out.println("Vehiculo insertado correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
-            System.out.println("ERROR: El vehículo no ha sido insertado correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -84,7 +84,7 @@ public class Vista {
             controlador.insertar(Consola.leerRevision());
             System.out.println("Revisión insertada correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException|  NullPointerException e) {
-            System.out.println("ERROR: La revisión no ha sido insertada correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -96,7 +96,7 @@ public class Vista {
             Cliente cliente = controlador.buscar(Consola.leerClienteDni());
             System.out.println(cliente != null ? cliente : "No existe ningún cliente con ese Dni");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha encontrado ningún cliente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -106,7 +106,7 @@ public class Vista {
             Vehiculo vehiculo = controlador.buscar(Consola.leerVehiculoMatricula());
             System.out.println(vehiculo != null ? vehiculo : "No existe ningún vehículo con esa matricula");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha encontrado ningún vehículo " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class Vista {
             Revision revision = controlador.buscar(Consola.leerRevision());
             System.out.println(revision != null ? revision : "No existe la revisión indicada");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha encontrado ninguna revisión " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
 
     }
@@ -127,7 +127,7 @@ public class Vista {
             controlador.modificar(Consola.leerClienteDni(), Consola.leerNuevoNombre(),Consola.leerNuevoTelefono());
             System.out.println("Cliente modificado correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
-            System.out.println("ERROR: El cliente no se ha modificado correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ public class Vista {
             controlador.anadirHoras(Consola.leerRevision(), Consola.leerHoras());
             System.out.println("Las horas se han añadido correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
-            System.out.println("ERROR: No se han añadido correctamente las horas " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -147,7 +147,7 @@ public class Vista {
             controlador.anadirPrecioMaterial(Consola.leerRevision(),Consola.leerPrecioMaterial());
             System.out.println("El precio del material ha sido añadido correctamente");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha añadido correctamente el precio del material " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -157,7 +157,7 @@ public class Vista {
             controlador.cerrar(Consola.leerRevision(),Consola.leerFechaCierre());
             System.out.println("Revisión cerrada correctamente");
         } catch (TallerMecanicoExcepcion | IllegalArgumentException | NullPointerException e) {
-            System.out.println("ERROR: No se cerro la revisión correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -169,7 +169,7 @@ public class Vista {
             controlador.borrar(Consola.leerClienteDni());
             System.out.println("Cliente borrado correctamente");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha borrado el cliente correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -179,7 +179,7 @@ public class Vista {
             controlador.borrar(Consola.leerVehiculoMatricula());
             System.out.println("Vehículo borrado correctamente");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha borrado el vehículo correctamente " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -189,7 +189,7 @@ public class Vista {
             controlador.borrar(Consola.leerRevision());
             System.out.println("Revisión borrada correctamente");
         } catch (TallerMecanicoExcepcion | NullPointerException e) {
-            System.out.println("ERROR: No se ha borrado correctamente la revisión " + e.getMessage());
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
