@@ -8,6 +8,7 @@ import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Controlador {
 
@@ -15,9 +16,8 @@ public class Controlador {
     private final Vista vista;
 
     public Controlador(Modelo modelo, Vista vista) {
-        if (modelo == null || vista == null) {
-            throw new NullPointerException("ERROR: el modelo y la vista no pueden ser nulos");
-        }
+        Objects.requireNonNull(modelo, "El modelo no puede ser nulo.");
+        Objects.requireNonNull(vista,"La vista no puede ser nula.");
         this.modelo = modelo;
         this.vista = vista;
     }
