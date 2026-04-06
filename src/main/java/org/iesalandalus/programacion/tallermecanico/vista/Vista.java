@@ -7,15 +7,14 @@ import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Vista {
 
     private Controlador controlador;
 
     public void setControlador(Controlador controlador) {
-        if (controlador == null) {
-            throw new NullPointerException("ERROR: El controlador no puede ser nulo.");
-        }
+        Objects.requireNonNull(controlador,"El controlador no puede ser nulo.");
         this.controlador = controlador;
     }
 

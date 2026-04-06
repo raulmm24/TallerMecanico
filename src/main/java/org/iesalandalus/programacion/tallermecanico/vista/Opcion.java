@@ -5,24 +5,24 @@ import java.util.Map;
 
 public enum Opcion {
 
-    INSERTAR_CLIENTE(1,"Insertar cliente"),
-    INSERTAR_VEHICULO(2,"Insertar vehículo"),
-    INSERTAR_REVISION(3,"Insertar revisión"),
-    MODIFICAR_CLIENTE(4,"Modificar cliente"),
-    BUSCAR_CLIENTE(5,"Buscar cliente"),
-    BUSCAR_VEHICULO(6,"Buscar vehículo"),
-    BUSCAR_REVISION(7,"Buscar revisión"),
-    BORRAR_CLIENTE(8,"Borrar cliente"),
-    BORRAR_VEHICULO(9,"Borrar vehículo"),
-    BORRAR_REVISION(10,"Borrar revisión"),
-    LISTAR_CLIENTES(11,"Listar clientes"),
-    LISTAR_VEHICULOS(12,"Listar vehículos"),
-    LISTAR_REVISIONES(13,"Listar revisiones"),
-    LISTAR_REVISIONES_CLIENTE(14,"Listar revisiones de un cliente"),
-    LISTAR_REVISIONES_VEHICULO(15,"Listar revisiones de un vehículo"),
-    ANADIR_HORAS_REVISION(16,"Añadir horas a una revisión"),
-    ANADIR_PRECIO_MATERIAL_REVISION(17,"Añadir precio de material a una revisión"),
-    CERRAR_REVISION(18,"Cerrar revisión"),
+    INSERTAR_CLIENTE(11,"Insertar cliente"),
+    BUSCAR_CLIENTE(12,"Buscar cliente"),
+    MODIFICAR_CLIENTE(13,"Modificar cliente"),
+    LISTAR_CLIENTES(14,"Listar clientes"),
+    BORRAR_CLIENTE(15,"Borrar cliente"),
+    INSERTAR_VEHICULO(21,"Insertar vehículo"),
+    BUSCAR_VEHICULO(22,"Buscar vehículo"),
+    LISTAR_VEHICULOS(23,"Listar vehículos"),
+    BORRAR_VEHICULO(24,"Borrar vehículo"),
+    INSERTAR_REVISION(31,"Insertar revisión"),
+    BUSCAR_REVISION(32,"Buscar revisión"),
+    LISTAR_REVISIONES(34,"Listar revisiones"),
+    BORRAR_REVISION(33,"Borrar revisión"),
+    LISTAR_REVISIONES_CLIENTE(35,"Listar revisiones de un cliente"),
+    LISTAR_REVISIONES_VEHICULO(36,"Listar revisiones de un vehículo"),
+    ANADIR_HORAS_REVISION(41,"Añadir horas a una revisión"),
+    ANADIR_PRECIO_MATERIAL_REVISION(42,"Añadir precio de material a una revisión"),
+    CERRAR_REVISION(50,"Cerrar revisión"),
     SALIR(0,"Salir");
 
     private final int numeroOpcion;
@@ -46,7 +46,7 @@ public enum Opcion {
 
     public static Opcion get(int numeroOpcion) {
         if (!esValida(numeroOpcion)) {
-            throw new IllegalArgumentException("ERROR: el número de opción no es correcto.");
+            throw new IllegalArgumentException("el número de opción no es correcto.");
         }
         return opciones.get(numeroOpcion);
     }
