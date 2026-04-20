@@ -25,9 +25,7 @@ public class Modelo {
         revisiones = new Revisiones();
     }
 
-    public void terminar() {
-        System.out.println("El modelo ha terminado.");
-    }
+    public void terminar() {}
 
     public void insertar(Cliente cliente) {
         clientes.insertar(new Cliente(cliente));

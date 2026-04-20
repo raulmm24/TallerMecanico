@@ -199,5 +199,7 @@ public class Vista {
         }
     }
 
-    private void salir() {}
+    private void salir() {
+        System.out.println("Hasta Luego Lucas !!!");
+    }
 }
