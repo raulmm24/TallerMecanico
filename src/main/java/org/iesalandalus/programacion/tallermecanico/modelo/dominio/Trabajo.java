@@ -34,7 +34,7 @@ public abstract class Trabajo {
     }
 
     public static Trabajo copiar(Trabajo trabajo) {
-        Objects.requireNonNull(trabajo, "No se puede copiar un trabajo nulo.");
+        Objects.requireNonNull(trabajo, "El trabajo no puede ser nulo.");
         if (trabajo instanceof Revision revision) {
             return new Revision(revision);
         } else {
