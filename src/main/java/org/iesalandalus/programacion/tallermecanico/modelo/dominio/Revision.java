@@ -3,6 +3,8 @@ package org.iesalandalus.programacion.tallermecanico.modelo.dominio;
 import java.time.LocalDate;
 
 public class Revision extends Trabajo {
+    private static final float FACTOR_HORA = 35f;
+
     public Revision(Cliente cliente, Vehiculo vehiculo, LocalDate fechaInicio) {
         super(cliente, vehiculo, fechaInicio);
     }
@@ -12,10 +14,17 @@ public class Revision extends Trabajo {
     }
 
     @Override
-    public float getPrecioEspecifico() { return 0f; }
+    public float getPrecioEspecifico() {
+        // El precio específico de la revisión depende de las horas
+        return getHoras() * FACTOR_HORA;
+    }
 
     @Override
     public String toString() {
-        return String.format("Revisión -> %s", super.toString());
+        String cadena = String.format("Revisión -> %s", super.toString());
+        if (estaCerrado()) {
+            cadena = String.format("%s, %.2f € total", cadena, getPrecio());
+        }
+        return cadena;
     }
 }
