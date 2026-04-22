@@ -14,7 +14,6 @@ import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
 
-    // Nombres idénticos a los del test para facilitar la inyección de Mockito
     private IClientes clientes;
     private IVehiculos vehiculos;
     private ITrabajos trabajos;
@@ -43,14 +42,8 @@ public class ModeloCascada implements Modelo {
     @Override
     public void insertar(Trabajo trabajo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(trabajo, "No se puede insertar un trabajo nulo.");
-
-        // Es vital llamar a buscar() para registrar la interacción en el InOrder del test,
-        // pero NO debemos validar el nulo aquí porque el test buscarTrabajoLlamaTrabajosBuscar
-        // NO configura estos mocks y lanzaría la excepción de "No existe el cliente".
         clientes.buscar(trabajo.getCliente());
         vehiculos.buscar(trabajo.getVehiculo());
-
-        // Delegamos la inserción y su validación real a la capa de negocio
         trabajos.insertar(Trabajo.copiar(trabajo));
     }
 
@@ -67,7 +60,6 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public Trabajo buscar(Trabajo trabajo) {
-        // Esta es la llamada que el verify(trabajos).buscar(revision) espera
         Trabajo encontrado = trabajos.buscar(trabajo);
         return (encontrado == null) ? null : Trabajo.copiar(encontrado);
     }
@@ -94,7 +86,6 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public void borrar(Cliente cliente) throws TallerMecanicoExcepcion {
-        // Borrado en cascada
         List<Trabajo> trabajosAsociados = trabajos.get(cliente);
         for (Trabajo t : trabajosAsociados) {
             trabajos.borrar(t);
@@ -104,7 +95,6 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
-        // Borrado en cascada
         List<Trabajo> trabajosAsociados = trabajos.get(vehiculo);
         for (Trabajo t : trabajosAsociados) {
             trabajos.borrar(t);
