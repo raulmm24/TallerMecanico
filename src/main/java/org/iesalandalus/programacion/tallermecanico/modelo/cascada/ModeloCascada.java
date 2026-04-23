@@ -14,9 +14,9 @@ import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
 
-    private IClientes clientes;
-    private IVehiculos vehiculos;
-    private ITrabajos trabajos;
+    private final IClientes clientes;
+    private final IVehiculos vehiculos;
+    private final ITrabajos trabajos;
 
     public ModeloCascada(FabricaFuenteDatos fabricaFuenteDatos) {
         Objects.requireNonNull(fabricaFuenteDatos, "La fábrica de fuentes de datos no puede ser nula.");
