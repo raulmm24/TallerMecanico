@@ -90,7 +90,6 @@ public class VistaTexto implements Vista {
 
     @Override
     public Trabajo leerTrabajoVehiculo() {
-        // Objeto ficticio para realizar búsquedas por vehículo
         return new Revision(Cliente.get("11111111H"), leerVehiculoMatricula(), LocalDate.now());
     }
 

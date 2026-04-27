@@ -100,11 +100,11 @@ public abstract class Trabajo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Trabajo trabajo)) return false;
-        return Objects.equals(cliente, trabajo.cliente) && Objects.equals(vehiculo, trabajo.vehiculo) && Objects.equals(fechaInicio, trabajo.fechaInicio);
+        return  Objects.equals(vehiculo, trabajo.vehiculo) && Objects.equals(fechaInicio, trabajo.fechaInicio);
     }
 
     @Override
-    public int hashCode() { return Objects.hash(cliente, vehiculo, fechaInicio); }
+    public int hashCode() { return Objects.hash(vehiculo, fechaInicio); }
 
     @Override
     public String toString() {

@@ -2,9 +2,7 @@ package org.iesalandalus.programacion.tallermecanico.modelo.cascada;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Trabajo;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
 
 import java.time.LocalDate;
@@ -42,9 +40,26 @@ public class ModeloCascada implements Modelo {
     @Override
     public void insertar(Trabajo trabajo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(trabajo, "No se puede insertar un trabajo nulo.");
-        clientes.buscar(trabajo.getCliente());
-        vehiculos.buscar(trabajo.getVehiculo());
-        trabajos.insertar(Trabajo.copiar(trabajo));
+
+        Cliente cliente = clientes.buscar(trabajo.getCliente());
+        Vehiculo vehiculo = vehiculos.buscar(trabajo.getVehiculo());
+
+        if (cliente == null) {
+            throw new TallerMecanicoExcepcion("No existe el cliente con el DNI indicado.");
+        }
+        if (vehiculo == null) {
+            throw new TallerMecanicoExcepcion("No existe el vehículo con la matrícula indicada.");
+        }
+
+        Trabajo trabajoRelleno;
+        if (trabajo instanceof Revision) {
+            trabajoRelleno = new Revision(cliente, vehiculo, trabajo.getFechaInicio());
+        } else if (trabajo instanceof Mecanico) {
+            trabajoRelleno = new Mecanico(cliente, vehiculo, trabajo.getFechaInicio());
+        } else {
+            throw new TallerMecanicoExcepcion("Tipo de trabajo no reconocido.");
+        }
+        trabajos.insertar(trabajoRelleno);
     }
 
     @Override
