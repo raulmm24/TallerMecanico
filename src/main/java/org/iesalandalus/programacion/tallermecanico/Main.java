@@ -11,13 +11,12 @@ import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 public class Main {
     public static void main(String[] args) {
         try {
+
             Modelo modelo = FabricaModelo.CASCADA.crear(FabricaFuenteDatos.MEMORIA);
-
             Vista vista = FabricaVista.TEXTO.crear();
-
             IControlador controlador = new Controlador(modelo,vista);
-
             controlador.comenzar();
+
         } catch (Exception e) {
             System.err.println("ERROR" + e.getMessage());
         }
