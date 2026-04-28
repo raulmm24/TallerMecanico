@@ -109,16 +109,9 @@ public abstract class Trabajo {
     @Override
     public String toString() {
         if (!estaCerrado()) {
-            return String.format("%s - %s (%s - ): %d horas",
-                    cliente,
-                    vehiculo,
-                    getFechaInicio().format(FORMATO_FECHA),
-                    getHoras());
+            return String.format("%s - %s (%s - ): %d horas", cliente, vehiculo, getFechaInicio().format(FORMATO_FECHA), getHoras());
         } else {
-            return String.format("%s - %s (%s - %s): %d horas",
-                    cliente,
-                    vehiculo,
-                    getFechaInicio().format(FORMATO_FECHA),
+            return String.format("%s - %s (%s - %s): %d horas", cliente, vehiculo, getFechaInicio().format(FORMATO_FECHA),
                     getFechaFin().format(FORMATO_FECHA),
                     getHoras());
         }

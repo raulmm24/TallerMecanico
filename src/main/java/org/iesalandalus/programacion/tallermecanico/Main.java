@@ -18,7 +18,7 @@ public class Main {
             controlador.comenzar();
 
         } catch (Exception e) {
-            System.err.println("ERROR" + e.getMessage());
+            System.out.println("ERROR" + e.getMessage());
         }
     }
 }

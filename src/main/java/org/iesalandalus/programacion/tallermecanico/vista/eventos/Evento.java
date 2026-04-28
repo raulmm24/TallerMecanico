@@ -36,7 +36,7 @@ public enum Evento {
         }
     }
 
-    private Evento(int codigo, String texto) {
+    Evento(int codigo, String texto) {
         this.codigo = codigo;
         this.texto = texto;
     }

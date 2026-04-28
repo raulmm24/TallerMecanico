@@ -15,7 +15,6 @@ public class Revision extends Trabajo {
 
     @Override
     public float getPrecioEspecifico() {
-        // El precio específico de la revisión depende de las horas
         return getHoras() * FACTOR_HORA;
     }
 

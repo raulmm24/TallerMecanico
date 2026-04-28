@@ -4,6 +4,9 @@ import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Clientes;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Trabajos;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Vehiculos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,16 +15,15 @@ import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
 
-    private final IClientes clientes;
-    private final IVehiculos vehiculos;
-    private final ITrabajos trabajos;
+    private  IClientes clientes;
+    private  IVehiculos vehiculos;
+    private  ITrabajos trabajos;
 
     public ModeloCascada(FabricaFuenteDatos fabricaFuenteDatos) {
         Objects.requireNonNull(fabricaFuenteDatos, "La fábrica de fuentes de datos no puede ser nula.");
-        IFuenteDatos fuenteDatos = fabricaFuenteDatos.crear();
-        this.clientes = fuenteDatos.crearClientes();
-        this.vehiculos = fuenteDatos.crearVehiculos();
-        this.trabajos = fuenteDatos.crearTrabajos();
+        this.clientes = new Clientes();
+        this.vehiculos = new Vehiculos();
+        this.trabajos = new Trabajos();
     }
 
     @Override public void comenzar() {}
@@ -41,23 +43,21 @@ public class ModeloCascada implements Modelo {
     public void insertar(Trabajo trabajo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(trabajo, "No se puede insertar un trabajo nulo.");
 
-        Cliente cliente = clientes.buscar(trabajo.getCliente());
-        Vehiculo vehiculo = vehiculos.buscar(trabajo.getVehiculo());
+        Cliente clienteEncontrado = clientes.buscar(trabajo.getCliente());
+        Vehiculo vehiculoEncontrado = vehiculos.buscar(trabajo.getVehiculo());
 
-        if (cliente == null) {
-            throw new TallerMecanicoExcepcion("No existe el cliente con el DNI indicado.");
+        if (clienteEncontrado == null) {
+            clienteEncontrado = trabajo.getCliente();
         }
-        if (vehiculo == null) {
-            throw new TallerMecanicoExcepcion("No existe el vehículo con la matrícula indicada.");
+        if (vehiculoEncontrado == null) {
+            vehiculoEncontrado = trabajo.getVehiculo();
         }
 
         Trabajo trabajoRelleno;
         if (trabajo instanceof Revision) {
-            trabajoRelleno = new Revision(cliente, vehiculo, trabajo.getFechaInicio());
-        } else if (trabajo instanceof Mecanico) {
-            trabajoRelleno = new Mecanico(cliente, vehiculo, trabajo.getFechaInicio());
+            trabajoRelleno = new Revision(clienteEncontrado, vehiculoEncontrado, trabajo.getFechaInicio());
         } else {
-            throw new TallerMecanicoExcepcion("Tipo de trabajo no reconocido.");
+            trabajoRelleno = new Mecanico(clienteEncontrado, vehiculoEncontrado, trabajo.getFechaInicio());
         }
         trabajos.insertar(trabajoRelleno);
     }
