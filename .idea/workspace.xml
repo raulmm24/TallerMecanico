@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Realización de modificaciones en las clases ModeloCascada y Trabajo para solucionar un error en el metodo de buscar trabajo">
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Realización de diferentes modificaciones y finalmente resolvemos el problema de los test de Modelo para que vuelva a pasar sus correspondientes tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/cascada/ModeloCascada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/cascada/ModeloCascada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Revision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Revision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Trabajo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/modelo/dominio/Trabajo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/eventos/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/eventos/Evento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,10 +245,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ModeloTest.buscarTrabajoLlamaTrabajosBuscar" />
-      <item itemvalue="JUnit.VehiculosTest" />
       <item itemvalue="JUnit.ModeloTest" />
+      <item itemvalue="JUnit.ModeloTest.buscarTrabajoLlamaTrabajosBuscar" />
       <item itemvalue="JUnit.TrabajosTest" />
+      <item itemvalue="JUnit.VehiculosTest" />
     </list>
     <recent_temporary>
       <list>
@@ -425,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777284779075</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Realización de diferentes modificaciones y finalmente resolvemos el problema de los test de Modelo para que vuelva a pasar sus correspondientes tests">
+      <option name="closed" value="true" />
+      <created>1777371589192</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1777371589192</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -460,7 +464,8 @@
     <MESSAGE value="Modificación del Main" />
     <MESSAGE value="Modificación de la clase Main" />
     <MESSAGE value="Realización de modificaciones en las clases ModeloCascada y Trabajo para solucionar un error en el metodo de buscar trabajo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Realización de modificaciones en las clases ModeloCascada y Trabajo para solucionar un error en el metodo de buscar trabajo" />
+    <MESSAGE value="Realización de diferentes modificaciones y finalmente resolvemos el problema de los test de Modelo para que vuelva a pasar sus correspondientes tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Realización de diferentes modificaciones y finalmente resolvemos el problema de los test de Modelo para que vuelva a pasar sus correspondientes tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

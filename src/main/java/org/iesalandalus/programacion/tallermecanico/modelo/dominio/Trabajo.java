@@ -81,8 +81,8 @@ public abstract class Trabajo {
     public boolean estaCerrado() { return fechaFin != null; }
 
     public void cerrar(LocalDate fechaFin) throws TallerMecanicoExcepcion {
-        if (estaCerrado()) throw new TallerMecanicoExcepcion("El trabajo ya está cerrado.");
         Objects.requireNonNull(fechaFin, "La fecha de fin no puede ser nula.");
+        if (estaCerrado()) throw new TallerMecanicoExcepcion("El trabajo ya está cerrado.");
         if (fechaFin.isAfter(LocalDate.now())) throw new IllegalArgumentException("La fecha de fin no puede ser futura.");
         if (fechaFin.isBefore(fechaInicio)) throw new IllegalArgumentException("La fecha de fin no puede ser anterior a la fecha de inicio.");
         this.fechaFin = fechaFin;
