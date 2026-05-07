@@ -4,11 +4,11 @@ import java.util.*;
 
 public class GestorEventos {
 
-    private Map<Evento, List<ReceptorEventos>> receptores = new HashMap<>();
+    private final Map<Evento, List<ReceptorEventos>> receptores;
 
     public GestorEventos(Evento... eventos) {
-        Objects.requireNonNull(eventos,"Los eventos no pueden ser nulos.");
-        this.receptores = new HashMap<>();
+        Objects.requireNonNull(eventos, "Los eventos no pueden ser nulos.");
+        this.receptores = new EnumMap<>(Evento.class);
         for (Evento evento : eventos) {
             this.receptores.put(evento, new ArrayList<>());
         }
@@ -16,33 +16,31 @@ public class GestorEventos {
 
     public void suscribir(ReceptorEventos receptor, Evento... eventos) {
         Objects.requireNonNull(receptor, "El receptor no puede ser nulo.");
-        Objects.requireNonNull(eventos, "La lista de eventos no puede ser nula.");
-
+        Objects.requireNonNull(eventos, "Los eventos no pueden ser nulos.");
         for (Evento evento : eventos) {
-            List<ReceptorEventos> listaSuscritos = receptores.get(evento);
-            if (listaSuscritos != null && !listaSuscritos.contains(receptor)) {
-                listaSuscritos.add(receptor);
+            List<ReceptorEventos> suscritos = receptores.get(evento);
+            if (suscritos != null && !suscritos.contains(receptor)) {
+                suscritos.add(receptor);
             }
         }
     }
 
     public void desuscribir(ReceptorEventos receptor, Evento... eventos) {
-        Objects.requireNonNull(receptor,"El receptor no puede ser nulo.");
-        Objects.requireNonNull(eventos,"La lista de eventos no puede ser nula.");
-
+        Objects.requireNonNull(receptor, "El receptor no puede ser nulo.");
+        Objects.requireNonNull(eventos, "Los eventos no pueden ser nulos.");
         for (Evento evento : eventos) {
-            List<ReceptorEventos> listaSuscritos = receptores.get(evento);
-            if (listaSuscritos != null) {
-                listaSuscritos.remove(receptor);
+            List<ReceptorEventos> suscritos = receptores.get(evento);
+            if (suscritos != null) {
+                suscritos.remove(receptor);
             }
         }
     }
-    public void notificar(Evento evento) {
-        Objects.requireNonNull(evento, "No se puede notificar un evento nulo.");
 
-        List<ReceptorEventos> listaSuscritos = receptores.get(evento);
-        if (listaSuscritos != null) {
-            for (ReceptorEventos receptor : listaSuscritos) {
+    public void notificar(Evento evento) {
+        Objects.requireNonNull(evento, "El evento a notificar no puede ser nulo.");
+        List<ReceptorEventos> suscritos = receptores.get(evento);
+        if (suscritos != null) {
+            for (ReceptorEventos receptor : suscritos) {
                 receptor.actualizar(evento);
             }
         }
