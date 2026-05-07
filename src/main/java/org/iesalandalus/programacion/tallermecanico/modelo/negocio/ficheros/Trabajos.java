@@ -39,6 +39,7 @@ public class Trabajos implements ITrabajos {
         return instancia;
     }
 
+    @Override
     public void comenzar() {
         Document documento = UtilidadesXml.leerDocumentoXml(FICHERO_TRABAJOS);
         if (documento != null) {
@@ -98,6 +99,7 @@ public class Trabajos implements ITrabajos {
         return trabajo;
     }
 
+    @Override
     public void terminar() {
         Document documento = crearDocumentoXml();
         if (documento != null) {
@@ -169,6 +171,7 @@ public class Trabajos implements ITrabajos {
         return trabajosVehiculo;
     }
 
+    @Override
     public Map<TipoTrabajo,Integer> getEstadisticasMensuales(LocalDate mes) {
         Objects.requireNonNull(mes,"El mes no puede ser nulo.");
         Map<TipoTrabajo, Integer> estadisticas = inicializarEstadisticas();
