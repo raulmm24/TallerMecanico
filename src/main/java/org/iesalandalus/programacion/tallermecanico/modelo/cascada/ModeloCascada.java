@@ -4,13 +4,11 @@ import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Clientes;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Trabajos;
-import org.iesalandalus.programacion.tallermecanico.modelo.negocio.memoria.Vehiculos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
@@ -21,13 +19,22 @@ public class ModeloCascada implements Modelo {
 
     public ModeloCascada(FabricaFuenteDatos fabricaFuenteDatos) {
         Objects.requireNonNull(fabricaFuenteDatos, "La fábrica de fuentes de datos no puede ser nula.");
-        this.clientes = new Clientes();
-        this.vehiculos = new Vehiculos();
-        this.trabajos = new Trabajos();
+        IFuenteDatos fuenteDatos = fabricaFuenteDatos.crear();
+        this.clientes = fuenteDatos.crearClientes();
+        this.vehiculos = fuenteDatos.crearVehiculos();
+        this.trabajos = fuenteDatos.crearTrabajos();
     }
 
-    @Override public void comenzar() {}
-    @Override public void terminar() {}
+    @Override public void comenzar() {
+        clientes.comenzar();
+        vehiculos.comenzar();
+        trabajos.comenzar();
+    }
+    @Override public void terminar() {
+        clientes.terminar();
+        vehiculos.terminar();
+        trabajos.terminar();
+    }
 
     @Override
     public void insertar(Cliente cliente) throws TallerMecanicoExcepcion {
@@ -153,5 +160,10 @@ public class ModeloCascada implements Modelo {
         List<Trabajo> copia = new ArrayList<>();
         for (Trabajo t : trabajos.get(vehiculo)) copia.add(Trabajo.copiar(t));
         return copia;
+    }
+
+    @Override
+    public Map<TipoTrabajo, Integer> getEstadisticasMensuales(LocalDate mes) {
+        return trabajos.getEstadisticasMensuales(mes);
     }
 }
