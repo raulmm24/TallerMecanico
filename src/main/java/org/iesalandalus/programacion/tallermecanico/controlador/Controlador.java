@@ -95,6 +95,8 @@ public class Controlador implements IControlador, ReceptorEventos {
                     modelo.cerrar(vista.leerTrabajoVehiculo(), vista.leerFechaCierre());
                     vista.notificarResultado(evento, "Trabajo cerrado con éxito", true);
                 }
+                case MOSTRAR_ESTADISTICAS_MENSUALES -> vista.mostrarEstadisticasMensuales(modelo.getEstadisticasMensuales(vista.leerMes()));
+
                 case SALIR -> terminar();
             }
         } catch (Exception e) {
