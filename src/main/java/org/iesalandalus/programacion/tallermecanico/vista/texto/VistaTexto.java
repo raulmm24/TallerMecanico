@@ -1,16 +1,13 @@
 package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Mecanico;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Trabajo;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
 import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.GestorEventos;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public class VistaTexto implements Vista {
 
@@ -108,6 +105,11 @@ public class VistaTexto implements Vista {
         return Consola.leerFecha("Fecha de cierre");
     }
 
+    @Override
+    public LocalDate leerMes() {
+        return Consola.leerFecha("Introduce un día del mes (MM/yyyy)");
+    }
+
     // --- MÉTODOS DE SALIDA ---
 
     @Override
@@ -155,5 +157,11 @@ public class VistaTexto implements Vista {
         } else {
             for (Trabajo t : trabajos) System.out.println(t);
         }
+    }
+
+    @Override
+    public void mostrarEstadisticasMensuales(Map<TipoTrabajo, Integer> estadisticas) {
+        Consola.mostrarCabecera("Estadísticas Mensuales");
+        estadisticas.forEach((tipo, cantidad) -> System.out.printf("%s: %d%n", tipo, cantidad));
     }
 }

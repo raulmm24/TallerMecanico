@@ -55,6 +55,6 @@ public enum Evento {
 
     @Override
     public String toString() {
-        return String.format("%d. %s", codigo, texto);
+        return String.format("%d. - %s", codigo, texto);
     }
 }
