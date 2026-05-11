@@ -1,6 +1,5 @@
 package org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros;
 
-import org.iesalandalus.programacion.tallermecanico.modelo.Modelo;
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.IVehiculos;
@@ -10,14 +9,15 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 public class Vehiculos implements IVehiculos {
 
-    private static final String FICHERO_VEHICULOS = "datos/vehiculos.xml";
-    private static final String RAIZ = "Vehículos";
-    private static final String VEHICULO = "vehículo";
+    private static final String FICHERO_VEHICULOS = "";
+    private static final String RAIZ = "vehiculos";
+    private static final String VEHICULO = "vehiculo";
     private static final String MARCA = "marca";
     private static final String MODELO = "modelo";
     private static final String MATRICULA = "matricula";
@@ -25,6 +25,11 @@ public class Vehiculos implements IVehiculos {
     private static Vehiculos instancia;
     private final List<Vehiculo> coleccionVehiculos;
 
+    private Vehiculos() {
+        coleccionVehiculos = new ArrayList<>();
+    }
+
+    // 3. Visibilidad de PAQUETE (Package-private) para el Singleton
     static Vehiculos getInstancia() {
         if (instancia == null) {
             instancia = new Vehiculos();
@@ -32,10 +37,19 @@ public class Vehiculos implements IVehiculos {
         return instancia;
     }
 
+    @Override
     public void comenzar() {
         Document documento = UtilidadesXml.leerDocumentoXml(FICHERO_VEHICULOS);
         if (documento != null) {
             procesarDocumentoXml(documento);
+        }
+    }
+
+    @Override
+    public void terminar() {
+        Document documento = crearDocumentoXml();
+        if (documento != null) {
+            UtilidadesXml.escribirDocumentoXml(documento, FICHERO_VEHICULOS);
         }
     }
 
@@ -54,14 +68,7 @@ public class Vehiculos implements IVehiculos {
         String marca = elemento.getAttribute(MARCA);
         String modelo = elemento.getAttribute(MODELO);
         String matricula = elemento.getAttribute(MATRICULA);
-        return new Vehiculo(marca,modelo,matricula);
-    }
-
-    public void terminar() {
-        Document documento = crearDocumentoXml();
-        if (documento != null) {
-            UtilidadesXml.escribirDocumentoXml(documento,FICHERO_VEHICULOS);
-        }
+        return new Vehiculo(marca, modelo, matricula);
     }
 
     private Document crearDocumentoXml() {
@@ -72,32 +79,28 @@ public class Vehiculos implements IVehiculos {
         documentoXml.appendChild(raiz);
 
         for (Vehiculo vehiculo : coleccionVehiculos) {
-            Element elementoVehiculo = getElemento(vehiculo, documentoXml);
-            raiz.appendChild(elementoVehiculo);
+            raiz.appendChild(getElemento(vehiculo, documentoXml));
         }
-
         return documentoXml;
     }
 
     private Element getElemento(Vehiculo vehiculo, Document documentoXml) {
-        Element elementoCliente = documentoXml.createElement(VEHICULO);
-        elementoCliente.setAttribute(MARCA, vehiculo.marca());
-        elementoCliente.setAttribute(MODELO, vehiculo.modelo());
-        elementoCliente.setAttribute(MATRICULA, vehiculo.matricula());
+        Element elementoVehiculo = documentoXml.createElement(VEHICULO);
+        elementoVehiculo.setAttribute(MARCA, vehiculo.marca());
+        elementoVehiculo.setAttribute(MODELO, vehiculo.modelo());
+        elementoVehiculo.setAttribute(MATRICULA, vehiculo.matricula());
 
-        return elementoCliente;
-    }
-
-
-    public Vehiculos() {
-        coleccionVehiculos = new ArrayList<>();
+        return elementoVehiculo;
     }
 
     @Override
     public List<Vehiculo> get() {
-        return new ArrayList<>(coleccionVehiculos);
+        List<Vehiculo> vehiculosOrdenados = new ArrayList<>(coleccionVehiculos);
+        vehiculosOrdenados.sort(Comparator.comparing(Vehiculo::marca)
+                .thenComparing(Vehiculo::modelo)
+                .thenComparing(Vehiculo::matricula));
+        return vehiculosOrdenados;
     }
-
 
     @Override
     public void insertar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
@@ -108,20 +111,18 @@ public class Vehiculos implements IVehiculos {
         coleccionVehiculos.add(vehiculo);
     }
 
-
     @Override
     public Vehiculo buscar(Vehiculo vehiculo) {
         Objects.requireNonNull(vehiculo, "No se puede buscar un vehículo nulo.");
-        int vehiculoEncontrado = coleccionVehiculos.indexOf(vehiculo);
-        return (vehiculoEncontrado == -1) ? null : coleccionVehiculos.get(vehiculoEncontrado);
+        int indice = coleccionVehiculos.indexOf(vehiculo);
+        return (indice == -1) ? null : coleccionVehiculos.get(indice);
     }
 
     @Override
     public void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(vehiculo, "No se puede borrar un vehículo nulo.");
-        if (!coleccionVehiculos.contains(vehiculo)) {
+        if (!coleccionVehiculos.remove(vehiculo)) {
             throw new TallerMecanicoExcepcion("No existe ningún vehículo con esa matrícula.");
         }
-        coleccionVehiculos.remove(vehiculo);
     }
 }

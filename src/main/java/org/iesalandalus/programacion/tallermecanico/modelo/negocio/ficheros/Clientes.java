@@ -4,23 +4,23 @@ import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepci
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.tallermecanico.modelo.negocio.IClientes;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 public class Clientes implements IClientes {
 
-    private static final String FICHERO_CLIENTES = "datos/clientes.xml";
+    private static final String FICHERO_CLIENTES = "";
     private static final String RAIZ = "clientes";
     private static final String CLIENTE = "cliente";
     private static final String NOMBRE = "nombre";
     private static final String DNI = "dni";
-    private static final String TELEFONO = "teléfono";
+    private static final String TELEFONO = "telefono";
 
     private static Clientes instancia;
     private final List<Cliente> coleccionClientes;
@@ -36,10 +36,19 @@ public class Clientes implements IClientes {
         return instancia;
     }
 
+    @Override
     public void comenzar() {
         Document documento = UtilidadesXml.leerDocumentoXml(FICHERO_CLIENTES);
         if (documento != null) {
             procesarDocumentoXml(documento);
+        }
+    }
+
+    @Override
+    public void terminar() {
+        Document documento = crearDocumentoXml();
+        if (documento != null) {
+            UtilidadesXml.escribirDocumentoXml(documento, FICHERO_CLIENTES);
         }
     }
 
@@ -58,15 +67,7 @@ public class Clientes implements IClientes {
         String nombre = elemento.getAttribute(NOMBRE);
         String dni = elemento.getAttribute(DNI);
         String telefono = elemento.getAttribute(TELEFONO);
-        return new Cliente(nombre,dni,telefono);
-
-    }
-
-    public void terminar() {
-        Document documento = crearDocumentoXml();
-        if (documento != null) {
-            UtilidadesXml.escribirDocumentoXml(documento,FICHERO_CLIENTES);
-        }
+        return new Cliente(nombre, dni, telefono);
     }
 
     private Document crearDocumentoXml() {
@@ -77,27 +78,27 @@ public class Clientes implements IClientes {
         documentoXml.appendChild(raiz);
 
         for (Cliente cliente : coleccionClientes) {
-            Element elementoCliente = getElemento(cliente,documentoXml);
-            raiz.appendChild(elementoCliente);
+            raiz.appendChild(getElemento(cliente, documentoXml));
         }
         return documentoXml;
     }
 
     private Element getElemento(Cliente cliente, Document documentoXml) {
         Element elementoCliente = documentoXml.createElement(CLIENTE);
+        // Usamos getters tradicionales ya que no es un record
         elementoCliente.setAttribute(NOMBRE, cliente.getNombre());
         elementoCliente.setAttribute(DNI, cliente.getDni());
         elementoCliente.setAttribute(TELEFONO, cliente.getTelefono());
-
         return elementoCliente;
     }
 
-
     @Override
     public List<Cliente> get() {
-        return new ArrayList<>(coleccionClientes);
+        // REQUISITO: Ordenados por nombre y DNI
+        List<Cliente> clientesOrdenados = new ArrayList<>(coleccionClientes);
+        clientesOrdenados.sort(Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni));
+        return clientesOrdenados;
     }
-
 
     @Override
     public void insertar(Cliente cliente) throws TallerMecanicoExcepcion {
@@ -111,7 +112,6 @@ public class Clientes implements IClientes {
     @Override
     public Cliente modificar(Cliente cliente, String nombre, String telefono) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(cliente, "No se puede modificar un cliente nulo.");
-
         Cliente clienteEncontrado = buscar(cliente);
 
         if (clienteEncontrado == null) {
@@ -127,24 +127,18 @@ public class Clientes implements IClientes {
         return clienteEncontrado;
     }
 
-
     @Override
     public Cliente buscar(Cliente cliente) {
         Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
-        int clienteEncontrado = coleccionClientes.indexOf(cliente);
-        return (clienteEncontrado == -1) ? null : coleccionClientes.get(clienteEncontrado);
+        int indice = coleccionClientes.indexOf(cliente);
+        return (indice == -1) ? null : coleccionClientes.get(indice);
     }
-
 
     @Override
     public void borrar(Cliente cliente) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(cliente, "No se puede borrar un cliente nulo.");
-        if (!coleccionClientes.contains(cliente)) {
+        if (!coleccionClientes.remove(cliente)) {
             throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
-        coleccionClientes.remove(cliente);
     }
-
-
-
 }
