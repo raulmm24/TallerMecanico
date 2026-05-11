@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class Vehiculos implements IVehiculos {
 
-    private static final String FICHERO_VEHICULOS = "";
+    private static final String FICHERO_VEHICULOS = "src/vehiculos.xml";
     private static final String RAIZ = "vehiculos";
     private static final String VEHICULO = "vehiculo";
     private static final String MARCA = "marca";

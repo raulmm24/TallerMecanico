@@ -13,7 +13,7 @@ import java.util.*;
 
 public class Trabajos implements ITrabajos {
 
-    private static final String FICHERO_TRABAJOS = "";
+    private static final String FICHERO_TRABAJOS = "src/trabajos.xml";
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final String RAIZ = "trabajos";
     private static final String TRABAJO = "trabajo";

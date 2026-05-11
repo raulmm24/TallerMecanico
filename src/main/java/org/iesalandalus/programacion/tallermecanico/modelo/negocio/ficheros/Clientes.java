@@ -7,7 +7,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import javax.xml.parsers.DocumentBuilder;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.Objects;
 
 public class Clientes implements IClientes {
 
-    private static final String FICHERO_CLIENTES = "";
+    private static final String FICHERO_CLIENTES = "src/clientes.xml";
     private static final String RAIZ = "clientes";
     private static final String CLIENTE = "cliente";
     private static final String NOMBRE = "nombre";
@@ -56,9 +55,13 @@ public class Clientes implements IClientes {
         NodeList nodos = documentoXml.getElementsByTagName(CLIENTE);
         for (int i = 0; i < nodos.getLength(); i++) {
             Element elemento = (Element) nodos.item(i);
+            String dni = elemento.getAttribute(DNI);
+            String nombre = elemento.getAttribute(NOMBRE);
+            String telefono = elemento.getAttribute(TELEFONO);
+
             try {
-                insertar(getCliente(elemento));
-            } catch (TallerMecanicoExcepcion | NullPointerException e) {
+                insertar(new Cliente(nombre, dni, telefono));
+            } catch (Exception e) {
             }
         }
     }
@@ -71,14 +74,16 @@ public class Clientes implements IClientes {
     }
 
     private Document crearDocumentoXml() {
-        DocumentBuilder constructor = UtilidadesXml.crearConstructorDocumentoXml();
-        Document documentoXml = constructor.newDocument();
-
+        Document documentoXml = UtilidadesXml.crearConstructorDocumentoXml().newDocument();
         Element raiz = documentoXml.createElement(RAIZ);
         documentoXml.appendChild(raiz);
 
         for (Cliente cliente : coleccionClientes) {
-            raiz.appendChild(getElemento(cliente, documentoXml));
+            Element elementoCliente = documentoXml.createElement(CLIENTE);
+            elementoCliente.setAttribute(DNI, cliente.getDni());
+            elementoCliente.setAttribute(NOMBRE, cliente.getNombre());
+            elementoCliente.setAttribute(TELEFONO, cliente.getTelefono());
+            raiz.appendChild(elementoCliente);
         }
         return documentoXml;
     }
