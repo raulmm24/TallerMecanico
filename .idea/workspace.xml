@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Modificaciones en el enumerado de Evento, en la clase VistaTexto y en su interfaz." />
+    <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Modificación en la clase Controlador">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -346,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778480780331</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Modificación en la clase Controlador">
+      <option name="closed" value="true" />
+      <created>1778481049657</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1778481049657</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +389,8 @@
     <MESSAGE value="Modificacion en la clase ModeloCascada y en su interfaz." />
     <MESSAGE value="Modificación de la clase enumerado Evento y GestorEventos" />
     <MESSAGE value="Modificaciones en el enumerado de Evento, en la clase VistaTexto y en su interfaz." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificaciones en el enumerado de Evento, en la clase VistaTexto y en su interfaz." />
+    <MESSAGE value="Modificación en la clase Controlador" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificación en la clase Controlador" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TallerMecanico$RevisionTest.ic" NAME="RevisionTest Coverage Results" MODIFIED="1706862963586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
