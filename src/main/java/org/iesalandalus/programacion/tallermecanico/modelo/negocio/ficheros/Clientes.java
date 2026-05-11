@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -89,7 +90,10 @@ public class Clientes implements IClientes {
 
     @Override
     public List<Cliente> get() {
-        return new ArrayList<>(coleccionClientes);
+        List<Cliente> clientesOrdenados = new ArrayList<>(coleccionClientes);
+        clientesOrdenados.sort(Comparator.comparing(Cliente::getNombre, Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing(Cliente::getDni, Comparator.nullsLast(Comparator.naturalOrder())));
+        return clientesOrdenados;
     }
 
     @Override

@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -93,7 +94,11 @@ public class Vehiculos implements IVehiculos {
 
     @Override
     public List<Vehiculo> get() {
-        return new ArrayList<>(coleccionVehiculos);
+        List<Vehiculo> vehiculosOrdenados = new ArrayList<>(coleccionVehiculos);
+        vehiculosOrdenados.sort(Comparator.comparing(Vehiculo::marca, Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing(Vehiculo::modelo, Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing(Vehiculo::matricula, Comparator.nullsLast(Comparator.naturalOrder())));
+        return vehiculosOrdenados;
     }
 
     @Override

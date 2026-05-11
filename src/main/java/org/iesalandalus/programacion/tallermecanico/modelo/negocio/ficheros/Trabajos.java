@@ -133,10 +133,13 @@ public class Trabajos implements ITrabajos {
         return e;
     }
 
-    // CORRECCIÓN CRÍTICA: Eliminar la ordenación que causa el NPE con los Mocks
     @Override
     public List<Trabajo> get() {
-        return new ArrayList<>(coleccionTrabajos);
+        List<Trabajo> lista = new ArrayList<>(coleccionTrabajos);
+        lista.sort(Comparator.comparing(Trabajo::getFechaInicio, Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing((Trabajo t) -> t.getCliente().getNombre(), Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing((Trabajo t) -> t.getCliente().getDni(), Comparator.nullsLast(Comparator.naturalOrder())));
+        return lista;
     }
 
     @Override
