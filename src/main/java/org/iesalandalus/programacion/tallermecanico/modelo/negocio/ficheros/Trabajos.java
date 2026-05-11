@@ -13,7 +13,7 @@ import java.util.*;
 
 public class Trabajos implements ITrabajos {
 
-    private static final String FICHERO_TRABAJOS = "src/trabajos.xml";
+    private static final String FICHERO_TRABAJOS = "datos/trabajos.xml";
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static final String RAIZ = "trabajos";
     private static final String TRABAJO = "trabajo";
@@ -79,22 +79,32 @@ public class Trabajos implements ITrabajos {
         if (tipo.equals(MECANICO)) {
             trabajo = new Mecanico(cliente, vehiculo, fechaInicio);
             String precioMatStr = elemento.getAttribute(PRECIO_MATERIAL);
-            if (!precioMatStr.isBlank()) {
+            if (precioMatStr != null && !precioMatStr.isBlank()) {
                 try {
                     ((Mecanico) trabajo).anadirPrecioMaterial(Float.parseFloat(precioMatStr));
-                } catch (TallerMecanicoExcepcion e) { /* Log error */ }
+                } catch (NumberFormatException | TallerMecanicoExcepcion e) {
+                    System.err.println("Error al cargar material: " + e.getMessage());
+                }
             }
         } else {
             trabajo = new Revision(cliente, vehiculo, fechaInicio);
         }
 
         String fechaFinStr = elemento.getAttribute(FECHA_FIN);
+        String horasStr = elemento.getAttribute(HORAS);
+
         if (fechaFinStr != null && !fechaFinStr.isBlank()) {
             try {
-                int horas = Integer.parseInt(elemento.getAttribute(HORAS));
-                if (horas > 0) trabajo.anadirHoras(horas);
+                if (horasStr != null && !horasStr.isBlank()) {
+                    int horas = Integer.parseInt(horasStr);
+                    if (horas > 0) {
+                        trabajo.anadirHoras(horas);
+                    }
+                }
                 trabajo.cerrar(LocalDate.parse(fechaFinStr, FORMATO_FECHA));
-            } catch (TallerMecanicoExcepcion e) { /* Log error */ }
+            } catch (NumberFormatException | TallerMecanicoExcepcion e) {
+                System.err.println("Error al restaurar estado: " + e.getMessage());
+            }
         }
         return trabajo;
     }
