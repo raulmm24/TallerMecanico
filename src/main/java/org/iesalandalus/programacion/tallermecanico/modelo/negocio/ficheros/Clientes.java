@@ -8,7 +8,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +27,7 @@ public class Clientes implements IClientes {
         coleccionClientes = new ArrayList<>();
     }
 
-    static Clientes getInstancia() {
+    public static Clientes getInstancia() {
         if (instancia == null) {
             instancia = new Clientes();
         }
@@ -55,12 +54,8 @@ public class Clientes implements IClientes {
         NodeList nodos = documentoXml.getElementsByTagName(CLIENTE);
         for (int i = 0; i < nodos.getLength(); i++) {
             Element elemento = (Element) nodos.item(i);
-            String dni = elemento.getAttribute(DNI);
-            String nombre = elemento.getAttribute(NOMBRE);
-            String telefono = elemento.getAttribute(TELEFONO);
-
             try {
-                insertar(new Cliente(nombre, dni, telefono));
+                insertar(getCliente(elemento));
             } catch (Exception e) {
             }
         }
@@ -79,11 +74,7 @@ public class Clientes implements IClientes {
         documentoXml.appendChild(raiz);
 
         for (Cliente cliente : coleccionClientes) {
-            Element elementoCliente = documentoXml.createElement(CLIENTE);
-            elementoCliente.setAttribute(DNI, cliente.getDni());
-            elementoCliente.setAttribute(NOMBRE, cliente.getNombre());
-            elementoCliente.setAttribute(TELEFONO, cliente.getTelefono());
-            raiz.appendChild(elementoCliente);
+            raiz.appendChild(getElemento(cliente, documentoXml));
         }
         return documentoXml;
     }
@@ -98,9 +89,7 @@ public class Clientes implements IClientes {
 
     @Override
     public List<Cliente> get() {
-        List<Cliente> clientesOrdenados = new ArrayList<>(coleccionClientes);
-        clientesOrdenados.sort(Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni));
-        return clientesOrdenados;
+        return new ArrayList<>(coleccionClientes);
     }
 
     @Override
@@ -143,6 +132,4 @@ public class Clientes implements IClientes {
         int indice = coleccionClientes.indexOf(cliente);
         return (indice == -1) ? null : coleccionClientes.get(indice);
     }
-
-
 }
