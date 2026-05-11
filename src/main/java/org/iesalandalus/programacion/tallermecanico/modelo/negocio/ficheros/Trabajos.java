@@ -30,7 +30,6 @@ public class Trabajos implements ITrabajos {
     private static Trabajos instancia;
     private final List<Trabajo> coleccionTrabajos;
 
-    // 2. Singleton con visibilidad de paquete y constructor privado
     private Trabajos() {
         coleccionTrabajos = new ArrayList<>();
     }

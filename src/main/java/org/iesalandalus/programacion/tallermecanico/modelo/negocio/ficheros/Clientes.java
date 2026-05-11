@@ -90,7 +90,6 @@ public class Clientes implements IClientes {
 
     private Element getElemento(Cliente cliente, Document documentoXml) {
         Element elementoCliente = documentoXml.createElement(CLIENTE);
-        // Usamos getters tradicionales ya que no es un record
         elementoCliente.setAttribute(NOMBRE, cliente.getNombre());
         elementoCliente.setAttribute(DNI, cliente.getDni());
         elementoCliente.setAttribute(TELEFONO, cliente.getTelefono());
@@ -99,7 +98,6 @@ public class Clientes implements IClientes {
 
     @Override
     public List<Cliente> get() {
-        // REQUISITO: Ordenados por nombre y DNI
         List<Cliente> clientesOrdenados = new ArrayList<>(coleccionClientes);
         clientesOrdenados.sort(Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni));
         return clientesOrdenados;
@@ -122,21 +120,13 @@ public class Clientes implements IClientes {
         if (clienteEncontrado == null) {
             throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
-
-        if (nombre != null && !nombre.isBlank()) {
+        if (nombre != null) {
             clienteEncontrado.setNombre(nombre);
         }
-        if (telefono != null && !telefono.isBlank()) {
+        if (telefono != null) {
             clienteEncontrado.setTelefono(telefono);
         }
         return clienteEncontrado;
-    }
-
-    @Override
-    public Cliente buscar(Cliente cliente) {
-        Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
-        int indice = coleccionClientes.indexOf(cliente);
-        return (indice == -1) ? null : coleccionClientes.get(indice);
     }
 
     @Override
@@ -146,4 +136,13 @@ public class Clientes implements IClientes {
             throw new TallerMecanicoExcepcion("No existe ningún cliente con ese DNI.");
         }
     }
+
+    @Override
+    public Cliente buscar(Cliente cliente) {
+        Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
+        int indice = coleccionClientes.indexOf(cliente);
+        return (indice == -1) ? null : coleccionClientes.get(indice);
+    }
+
+
 }
