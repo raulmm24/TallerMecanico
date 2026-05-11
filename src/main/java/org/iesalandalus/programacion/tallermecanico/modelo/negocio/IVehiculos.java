@@ -8,14 +8,9 @@ import java.util.List;
 public interface IVehiculos {
 
     void comenzar();
-
     void terminar();
-
     List<Vehiculo> get();
-
     void insertar(Vehiculo vehiculo) throws TallerMecanicoExcepcion;
-
     Vehiculo buscar(Vehiculo vehiculo);
-
     void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion;
 }
