@@ -91,8 +91,17 @@ public class Clientes implements IClientes {
     @Override
     public List<Cliente> get() {
         List<Cliente> clientesOrdenados = new ArrayList<>(coleccionClientes);
-        clientesOrdenados.sort(Comparator.comparing(Cliente::getNombre, Comparator.nullsLast(Comparator.naturalOrder()))
-                .thenComparing(Cliente::getDni, Comparator.nullsLast(Comparator.naturalOrder())));
+        clientesOrdenados.sort(new Comparator<Cliente>() {
+            @Override
+            public int compare(Cliente c1, Cliente c2) {
+                int resultado;
+                resultado = c1.getNombre().compareTo(c2.getNombre());
+                if (resultado == 0) {
+                    resultado = c1.getDni().compareTo(c2.getDni());
+                }
+                return resultado;
+            }
+        });
         return clientesOrdenados;
     }
 

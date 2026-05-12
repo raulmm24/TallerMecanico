@@ -95,9 +95,20 @@ public class Vehiculos implements IVehiculos {
     @Override
     public List<Vehiculo> get() {
         List<Vehiculo> vehiculosOrdenados = new ArrayList<>(coleccionVehiculos);
-        vehiculosOrdenados.sort(Comparator.comparing(Vehiculo::marca, Comparator.nullsLast(Comparator.naturalOrder()))
-                .thenComparing(Vehiculo::modelo, Comparator.nullsLast(Comparator.naturalOrder()))
-                .thenComparing(Vehiculo::matricula, Comparator.nullsLast(Comparator.naturalOrder())));
+        vehiculosOrdenados.sort(new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo v1, Vehiculo v2) {
+                int resultado;
+                resultado = v1.marca().compareTo(v2.marca());
+                if (resultado == 0) {
+                    resultado = v1.modelo().compareTo(v2.modelo());
+                }
+                if (resultado == 0) {
+                    resultado = v1.matricula().compareTo(v2.matricula());
+                }
+                return resultado;
+            }
+        });
         return vehiculosOrdenados;
     }
 

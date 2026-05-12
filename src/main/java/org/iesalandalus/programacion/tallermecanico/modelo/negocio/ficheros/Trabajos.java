@@ -135,11 +135,23 @@ public class Trabajos implements ITrabajos {
 
     @Override
     public List<Trabajo> get() {
-        List<Trabajo> lista = new ArrayList<>(coleccionTrabajos);
-        lista.sort(Comparator.comparing(Trabajo::getFechaInicio, Comparator.nullsLast(Comparator.naturalOrder()))
-                .thenComparing((Trabajo t) -> t.getCliente().getNombre(), Comparator.nullsLast(Comparator.naturalOrder()))
-                .thenComparing((Trabajo t) -> t.getCliente().getDni(), Comparator.nullsLast(Comparator.naturalOrder())));
-        return lista;
+        List<Trabajo> listaOrdenada = new ArrayList<>(coleccionTrabajos);
+
+        Comparator<Trabajo> comparadorTrabajos = new Comparator<Trabajo>() {
+            @Override
+            public int compare(Trabajo t1, Trabajo t2) {
+                int resultado = t1.getFechaInicio().compareTo(t2.getFechaInicio());
+                if (resultado == 0) {
+                    resultado = t1.getCliente().getNombre().compareTo(t2.getCliente().getNombre());
+                }
+                if (resultado == 0) {
+                    resultado = t1.getCliente().getDni().compareTo(t2.getCliente().getDni());
+                }
+                return resultado;
+            }
+        };
+        listaOrdenada.sort(comparadorTrabajos);
+        return listaOrdenada;
     }
 
     @Override
